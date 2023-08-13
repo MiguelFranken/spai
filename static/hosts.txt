@@ -1,0 +1,18 @@
+#
+# Smart-Personas hostfile, to be used as a remote hostfile in Gasmask
+#
+# To activate, open Gasmask:
+# - Create remote hostfile
+# - Enter http://localhost:9999/hosts.txt
+# - Rename new hostfile to smart-personas
+# - Activate hostfile
+# - Hostfile will be automatically refreshed every hour (by default, can be changed in Gasmask settings)
+#
+
+127.0.0.1       localhost
+255.255.255.255 broadcasthost
+::1             localhost
+fe80::1%lo0     localhost
+
+#LOCAL
+127.0.0.1   review-generator.local

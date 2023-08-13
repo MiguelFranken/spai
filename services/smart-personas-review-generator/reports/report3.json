@@ -1,0 +1,27 @@
+{
+  "report": [
+    {
+      "id": "landmark-unique",
+      "description": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+      "help": "Ensures landmarks are unique",
+      "impact": "moderate"
+    },
+    {
+      "id": "page-has-heading-one",
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "impact": "moderate"
+    },
+    {
+      "id": "region",
+      "description": "Ensures all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "impact": "moderate"
+    }
+  ],
+  "context": {
+    "description": "Die RWTH Aachen ist ein Ort, an dem die Zukunft unserer industrialisierten Welt gedacht wird - Thinking the Future",
+    "author": "RWTH Aachen University",
+    "title": "RWTH AACHEN UNIVERSITY - Rheinisch-Westfaelische Technische Hochschule - Deutsch"
+  }
+}

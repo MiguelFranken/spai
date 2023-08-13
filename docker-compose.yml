@@ -1,5 +1,12 @@
 version: '3'
 
+x-networks:
+  &network_name motelone_network
+
+networks:
+  motelone_network:
+    name: *network_name
+
 services:
   traefik:
     image: traefik:v2.5
@@ -13,13 +20,32 @@ services:
       - "8080:8080" # The Web UI (enabled by --api.insecure=true)
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=motelone_network"
+    networks:
+      - *network_name
+
+  docker-static:
+    image: nginx:1.23-alpine3.17
+    container_name: smart-personas_docker-static
+    restart: unless-stopped
+    ports:
+      - 9999:80
+    volumes:
+      - ./static:/usr/share/nginx/html
+    labels:
+      - "traefik.http.routers.docker-static.entrypoints=docker-static"
+    networks:
+      - *network_name
 
   smart-personas-review-generator:
     image: smart-personas-review-generator
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.smart-personas-review-generator.rule=Host(`python-app.local`)"
+      - "traefik.http.routers.smart-personas-review-generator.rule=Host(`review-generator.local`)"
       - "traefik.http.routers.smart-personas-review-generator.entrypoints=web"
       - "traefik.http.services.smart-personas-review-generator.loadbalancer.server.port=1234"
-    expose:
-      - "1234"
+      - "traefik.docker.network=motelone_network"
+    networks:
+      - *network_name

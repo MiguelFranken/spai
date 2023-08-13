@@ -1,0 +1,28 @@
+{
+  "report": [
+    {
+      "id": "landmark-one-main",
+      "description": "Ensures the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "impact": "moderate"
+    },
+    {
+      "id": "page-has-heading-one",
+      "description": "Ensure that the page, or at least one of its frames contains a level-one heading",
+      "help": "Page should contain a level-one heading",
+      "impact": "moderate"
+    },
+    {
+      "id": "region",
+      "description": "Ensures all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "impact": "moderate"
+    }
+  ],
+  "context": {
+    "description": "Digitale Transformation mit denkwerk. Wir gestalten den digitalen Wandel für führende Marken und Unternehmen. Mehr erfahren",
+    "twitter:title": "denkwerk GmbH",
+    "twitter:description": "Mehrwert für Marken durch Werte für Menschen. #DigitaleTransformation mit #denkwerk. www.denkwerk.com/de",
+    "title": "denkwerk – Digitalagentur in Köln, Berlin, Hamburg und München"
+  }
+}

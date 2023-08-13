@@ -1,0 +1,56 @@
+{
+  "report": [
+    {
+      "id": "aria-allowed-role",
+      "description": "Ensures role attribute has an appropriate value for the element",
+      "help": "ARIA role should be appropriate for the element",
+      "impact": "minor"
+    },
+    {
+      "id": "button-name",
+      "description": "Ensures buttons have discernible text",
+      "help": "Buttons must have discernible text",
+      "impact": "critical"
+    },
+    {
+      "id": "color-contrast",
+      "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "impact": "serious"
+    },
+    {
+      "id": "heading-order",
+      "description": "Ensures the order of headings is semantically correct",
+      "help": "Heading levels should only increase by one",
+      "impact": "moderate"
+    },
+    {
+      "id": "image-alt",
+      "description": "Ensures <img> elements have alternate text or a role of none or presentation",
+      "help": "Images must have alternate text",
+      "impact": "critical"
+    },
+    {
+      "id": "image-redundant-alt",
+      "description": "Ensure image alternative is not repeated as text",
+      "help": "Alternative text of images should not be repeated as text",
+      "impact": "minor"
+    },
+    {
+      "id": "link-name",
+      "description": "Ensures links have discernible text",
+      "help": "Links must have discernible text",
+      "impact": "serious"
+    },
+    {
+      "id": "region",
+      "description": "Ensures all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "impact": "moderate"
+    }
+  ],
+  "context": {
+    "description": "www.thomann.de - der Online-Shop von Europas größtem Musikhaus",
+    "title": "Herzlich willkommen – Musikhaus Thomann"
+  }
+}

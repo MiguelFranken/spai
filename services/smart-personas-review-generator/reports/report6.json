@@ -1,0 +1,59 @@
+{
+  "report": [
+    {
+      "id": "aria-allowed-attr",
+      "description": "Ensures ARIA attributes are allowed for an element's role",
+      "help": "Elements must only use allowed ARIA attributes",
+      "impact": "critical"
+    },
+    {
+      "id": "aria-allowed-role",
+      "description": "Ensures role attribute has an appropriate value for the element",
+      "help": "ARIA role should be appropriate for the element",
+      "impact": "minor"
+    },
+    {
+      "id": "duplicate-id-active",
+      "description": "Ensures every id attribute value of active elements is unique",
+      "help": "IDs of active elements must be unique",
+      "impact": "serious"
+    },
+    {
+      "id": "duplicate-id-aria",
+      "description": "Ensures every id attribute value used in ARIA and in labels is unique",
+      "help": "IDs used in ARIA and labels must be unique",
+      "impact": "critical"
+    },
+    {
+      "id": "duplicate-id",
+      "description": "Ensures every id attribute value is unique",
+      "help": "id attribute value must be unique",
+      "impact": "minor"
+    },
+    {
+      "id": "empty-heading",
+      "description": "Ensures headings have discernible text",
+      "help": "Headings should not be empty",
+      "impact": "minor"
+    },
+    {
+      "id": "landmark-one-main",
+      "description": "Ensures the document has a main landmark",
+      "help": "Document should have one main landmark",
+      "impact": "moderate"
+    },
+    {
+      "id": "region",
+      "description": "Ensures all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "impact": "moderate"
+    }
+  ],
+  "context": {
+    "description": " Lauren Ralph Lauren ELBOW SLEEVE - T-Shirt basic - black/schwarz für 54,95 € (10.08.2023) Gratisversand für Bestellungen im Wert von über 29,90 €",
+    "twitter:title": "Lauren Ralph Lauren ELBOW SLEEVE - T-Shirt basic - black/schwarz - Zalando.de",
+    "twitter:description": " Lauren Ralph Lauren ELBOW SLEEVE - T-Shirt basic - black/schwarz für 54,95 € (10.08.2023) Gratisversand für Bestellungen im Wert von über 29,90 €",
+    "title": "Lauren Ralph Lauren ELBOW SLEEVE - T-Shirt basic - black/schwarz - Zalando.de",
+    "url": "https://www.zalando.de/lauren-ralph-lauren-judy-t-shirt-basic-black-l4221d09m-q11.html"
+  }
+}

@@ -1,0 +1,1575 @@
+rule_id,rule_name,Why it Matters,Rule Description,Disabilities Affected,Description,Impact,Tags,Issue Type,ACT Rules
+audio-caption,<audio> elements must have a captions <track>,"Without a caption for an audio file, deaf users are not able to know the
+  meaningful information that the audio conveys such as identifying who is
+  speaking, its dialogue, and non-speech information conveyed through sound such
+  as musical cues or sound effects. Captions provide the part of the content
+  that is available via the audio track.
+
+
+  A lot happens in a video aside from dialogue. While a blind person has no
+  problem hearing the dialogue in a movie, the person will miss out on important
+  visual aspects of the video. Visual aspects can be made accessible using audio
+  descriptions supplementing a video’s audio. In an audio description, the
+  narrator speaks when there are gaps in speech and gives the context necessary
+  to understand what is going on.
+
+
+  An HTML5 audio element (e.g. <audio>) must have a caption
+  provided using the <track> attribute. To be most effective,
+  the caption should convey all meaningful information that the audio conveys
+  including dialogue, musical cues, sound effects, and other relevant
+  information.","The track element must be present for each HTML5
+  audio element, with kind=""captions"" set as
+  a property. Captions are text—synchronized with the audio file—of
+  the dialog, narration, and any important auditory information, for the benefit
+  of deaf users.","Deafblind, Deaf",Ensures <audio> elements have captions,Critical,"cat.time-and-media, wcag2a, wcag121, EN-301-549, EN-9.1.2.1, section508, section508.22.a, deprecated",needs review,"2eb176, afb423"
+blink,<blink> elements are deprecated and must not be used,"As the name suggests, blink tags cause content to flash. Though
+  you may like the effect, blinking text can be difficult to read, and blinking
+  objects (links, buttons, etc.) can be difficult to activate, especially for
+  users with imprecise or limited dexterity.
+
+
+  It can be very difficult for people with visual and cognitive disabilities to
+  see and understand text that blinks. Blinking text be distracting, especially
+  for users with cognitive disabilities. It can also be difficult for some
+  individuals to comprehend. For these reasons, the blink element
+  should never be used.","This rule requires that no blink elements are present. Flashing
+  text can be difficult to read and blinking objects can be difficult to
+  activate. The associated automated check finds the presence of all
+  blink elements so that they can be removed.","Low Vision, Mobility, Cognitive",Ensures <blink> elements are not used,Serious,"cat.time-and-media, wcag2a, wcag222, section508, section508.22.j, TTv5, TT2.b, EN-301-549, EN-9.2.2.2",failure,
+definition-list,"<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, or <template> elements","Screen readers have a specific way of announcing definition lists. When such
+  lists are not properly marked up, this creates the opportunity for confusing
+  or inaccurate screen reader output.
+
+
+  A definition list is used to provide the definitions of words or phrases. The
+  Definition List is marked up using the dl element. Within the
+  list, each term is put in a separate dt element, and its
+  definition goes in the dd element directly following it.","Definition lists (dl) must contain only properly-ordered
+  dt and dd groups, div,
+  script, or template elements.","Blind, Deafblind",Ensures <dl> elements are structured correctly,Serious,"cat.structure, wcag2a, wcag131, EN-301-549, EN-9.1.3.1",failure,
+dlitem,<dt> and <dd> elements must be contained by a <dl>,"A definition list item must be wrapped in parent dl elements,
+  otherwise it will be invalid.
+
+
+  A definition list must follow a specific hierarchy. A list is defined using
+  the dl element. What follows are alternating sets of
+  dt and dd elements, starting with the
+  dt element. dt elements define a term while
+  dd elements denote a term's description. Each set of
+  dt elements must have a corresponding set of
+  dd elements. Only dt and dd elements
+  are allowed in definition list. If this hierarchy is not followed, the list
+  will be invalid.","Definition list items (dt and/or dd) must be wrapped
+  in parent dl elements to be valid. This enables screen reader
+  users to understand the proper hierarchy of information in the list.","Blind, Deafblind, Mobility",Ensures <dt> and <dd> elements are contained by a <dl>,Serious,"cat.structure, wcag2a, wcag131, EN-301-549, EN-9.1.3.1",failure,
+html-has-lang,<html> element must have a lang attribute,"When configuring a screen reader, users select a default language. If the
+  language of a webpage is not specified, the screen reader assumes the default
+  language set by the user. Language settings become an issue for users who
+  speak multiple languages and access website in more than one language. It is
+  essential to specify a language and ensure that it is valid so website text is
+  pronounced correctly.
+
+
+  Screen readers use different sound libraries for each language, based on the
+  pronunciation and characteristics of that language. Screen readers can switch
+  between these language libraries easily, but only if the documents specify
+  which language(s) to read and when. If the language is not specified, the
+  screen reader reads the document in the user's default language, resulting in
+  a strange accent! It is impossible to understand anything when screen readers
+  are using the wrong language library.","The HTML document element must contain a valid lang attribute or
+  must correspond to a valid lang code for multilingual screen
+  reader users who may prefer a language other than the default.","Blind, Deafblind, Cognitive",Ensures every HTML document has a lang attribute,Serious,"cat.language, wcag2a, wcag311, TTv5, TT11.a, EN-301-549, EN-9.3.1.1, ACT",failure,b5c3f8
+html-lang-valid,<html> element must have a valid value for the lang attribute,"When configuring a screen reader, users select a default language. If the
+  language of a webpage is not specified, the screen reader assumes the default
+  language set by the user. Language settings are an issue for users who speak
+  multiple languages and access website in more than one language. It is
+  essential to specify a language and ensure that it is valid so website text is
+  pronounced correctly.
+
+
+  Screen readers use different sound libraries for each language, based on the
+  pronunciation and characteristics of that language. Screen readers can switch
+  between these language libraries easily, but only if the documents correctly
+  specify which language(s) to read. If the language is not specified, the
+  screen reader reads the document in the user's default language, resulting in
+  a confusing accent! It is impossible to understand anything when screen
+  readers are using the wrong language library.","The HTML document must contain a valid lang attribute or must
+  correspond to a valid lang code for multilingual screen reader
+  users who may prefer a language other than the default.","Blind, Deafblind, Cognitive",Ensures the lang attribute of the <html> element has a valid value,Serious,"cat.language, wcag2a, wcag311, TTv5, TT11.a, EN-301-549, EN-9.3.1.1, ACT",failure,bf051a
+html-xml-lang-mismatch,<html> elements with lang and xml:lang must have the same base language,"When configuring a screen reader, users select a default language. If the
+  language of a webpage is not specified, the screen reader assumes the default
+  language set by the user. Multiple languages are an issue for users who speak
+  and access websites in multiple languages. It is essential to specify a
+  default language and ensure that it is valid for screen readers to function
+  correctly.
+
+
+  Screen readers use different sound libraries for each language, based on the
+  pronunciation and characteristics of that language. Screen readers can switch
+  between language libraries easily, but only if documents specify which
+  language(s) should to read. If the language is not specified, screen readers
+  read documents in the user's default language, resulting in garbled language.
+  It can be challenging to understand anything when screen readers are using the
+  wrong language library.","The HTML document must contain a valid lang attribute or must
+  correspond to a valid lang code for multilingual screen reader
+  users who may prefer a language other than the default. The
+  xml:lang attribute value, if included on the
+  html element, must duplicate the value of the
+  lang exactly.","Blind, Deafblind, Cognitive",Ensure that HTML elements with both valid lang and xml:lang attributes agree on the base language of the page,Moderate,"cat.language, wcag2a, wcag311, EN-301-549, EN-9.3.1.1, ACT",failure,5b7ae0
+listitem,<li> elements must be contained in a <ul> or <ol>,"For a list to be valid, it must have both parent and child elements. Parent
+  elements can either be a set of ul tags or a set of
+  ol tags. Child elements must be declared inside of these tags
+  using the li tag.
+
+
+  Screen readers notify users when they come to a list, and tell them how many
+  items are in a list. Announcing the number of items in a list and the current
+  list item helps listeners know what they are listening to, and what to expect
+  as they listen to it.
+
+
+  If you don't mark up a list using proper semantic markup in a hierarchy, list
+  items cannot inform the listener that they are listening to a list when no
+  parent is indicating the presence of a list and the type of list.","All list items (li) must be contained within ul or
+  ol parent elements.","Blind, Deaf, Mobility",Ensures <li> elements are used semantically,Serious,"cat.structure, wcag2a, wcag131, EN-301-549, EN-9.1.3.1",failure,
+marquee,<marquee> elements are deprecated and must not be used,"The marquee element creates scrolling text that is difficult to
+  read and click on. Beyond that, it can be distracting to viewers, especially
+  to those with low vision, cognitive disabilities, or attention deficits.
+
+
+  People with attention deficits or cognitive disabilities could become
+  distracted by content that scrolls. If scrolling content contains links,
+  people with limited fine motor abilities may not be able to click on the links
+  accurately. Users with visual impairments may not be able to see the scrolling
+  text with enough acuity to know what the content says.","<marquee> elements must not be present because they are
+  deprecated, increase difficulty for users with limited dexterity, and are
+  distracting for users with cognitive or attention deficits.","Low Vision, Mobility, Cognitive",Ensures <marquee> elements are not used,Serious,"cat.parsing, wcag2a, wcag222, TTv5, TT2.b, EN-301-549, EN-9.2.2.2",failure,
+object-alt,<object> elements must have alternate text,"Screen readers have no way of translating non-text content into text announced
+  to users. Instead, they read out alternative text. For screen reader users to
+  obtain the information contained in embedded object elements
+  which must contain short, descriptive alternative text.
+
+
+  The object element defines an embedded object within a document.
+  It is used to embed multimedia (audio, video, applets, etcetera.) or another
+  web page into the document. The object element needs a text alternative so
+  that users of screen readers know the contents of the object.
+
+
+  When writing a text alternative, keep in mind that the purpose of the
+  alternative text is to relay information to blind users about the image’s
+  contents and purpose - blind users should be able to get as much information
+  from alternative text as a sighted user gets from the image. Alternative text
+  should give the intent, purpose, and meaning of the image.
+
+
+  When writing alternative text, it’s helpful to keep the following questions in
+  mind:
+
+
+Why is the non-text content here?
+What information is it presenting?
+What purpose does it fulfill?
+
+    If I could not use the non-text content, what words would I use to convey
+    the same information or function?
+  
+
+
+  Be sure that all text contained in this attribute is useful. Words like
+  “chart”, “image”, “diagram”, or image file names tend not to be very useful.","All embedded objects must have text alternatives to be read out to screen
+  reader users.","Blind, Deafblind",Ensures <object> elements have alternate text,Serious,"cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, EN-301-549, EN-9.1.1.1","failure, needs review",8fc3b6
+list,"<ul> and <ol> must only directly contain <li>, <script> or <template> elements","Screen readers have a specific way of announcing lists. This feature makes
+  lists clearer to understand, but will only work if lists are properly
+  structured.
+
+
+  When content elements other than list items are contained within a set of list
+  elements, screen readers cannot inform the listener that they are listening to
+  items within the list.
+
+
+  For a list to be valid, it must have both parent elements (a set of
+  ul elements or a set of ol elements) and child
+  elements (declared inside of these tags using the li element),
+  and any other content elements are invalid.
+
+
+  Although some non-content elements such as script, template, style,
+  meta, link, map, area, and datalist are permitted within lists,
+  content elements other than li are not permitted.","Lists must be marked up correctly, meaning they must not contain
+  content elements other than li elements.","Blind, Deafblind",Ensures <dl> elements are structured correctly,Serious,"cat.structure, wcag2a, wcag131, EN-301-549, EN-9.1.3.1",failure,
+video-caption,<video> elements must have a <track> for captions,"If a video has no caption, deaf users have limited or no access to the
+  information contained in it. Even if a captions track is available, ensure
+  that it contains all meaningful information in the video, not just dialogue.
+
+
+  Deaf viewers can see everything in the video but are not able to hear any of
+  it without captions. Without a caption track, deaf viewers do not have a way
+  of knowing the dialog, narration, or the essential sounds not spoken by
+  people, such as ""dramatic instrumental music,"" applause, screams, or other
+  sounds that set the scene, provide context, or give meaning to the video.","An HTML5 video element must include a track element
+  with kind=""captions"" set as a property. The captions
+  should convey all meaningful auditory information in the video including
+  dialogue, musical cues, sound effects, and other relevant information for deaf
+  users.",Deaf,Ensures <video> elements have captions,Critical,"cat.text-alternatives, wcag2a, wcag122, section508, section508.22.a, TTv5, TT17.a, EN-301-549, EN-9.1.2.2",needs review,eac66b
+video-description,<video> elements must have an audio description <track>,"While blind people can hear the audio content of videos with no issue, they
+  miss visual aspects of films such as facial expressions and scenes. Many
+  things happen in movies that are completely visual, with no auditory
+  component. For example, a person can make a facial expression, but not say any
+  words. The camera can show a mountain scene, but no one in the movie says
+  ""this is a mountain scene."" There is much visual information that blind people
+  miss completely without audio. Audio descriptions are the solution to make
+  visual information in movies accessible to blind people.
+
+
+  If there is no accompanying narration or dialog to explain the visual
+  activity, blind people don't know what's happening. To make that kind of video
+  accessible to a blind person, you need to provide a version of the video with
+  audio descriptions. Audio descriptions are a recording of a person explaining
+  the visual aspects of the video that isn't in the video's original dialog or
+  narration. Audio description works best when users can turn it on or off, or
+  when there is a separate version of the video with audio descriptions for
+  blind users, in addition to the original version without audio descriptions.","The HTML5 video element must have an audio description track to
+  provide blind users with information the dialogue does not.",Blind,,,,,
+accesskeys,accesskey attribute value must be unique,"Specifying a accesskey attribute value for some part of a
+  document allows users to quickly activate or move the focus to a specific
+  element by pressing the specified key (usually in combination with the
+  alt key). Duplicating accesskey values
+  creates unexpected effects that ultimately make the page less accessible.
+
+
+  For each defined accesskey, ensure the value is unique and does
+  not conflict with any default browser and screen reader shortcut keys.
+
+
+  Content is not operable by keyboard users with no or low vision who cannot use
+  devices such as mice that require eye-hand coordination, users who have
+  trouble tracking a pointer, or users who must use alternate keyboards or input
+  devices acting as keyboard emulators.","All accesskey attribute values in a document must be unique. Put
+  another way, accesskeys must not be repeated to prevent
+  unexpected effects for keyboard users.","Blind, Low Vision, Mobility",Ensures every accesskey attribute value is unique,Serious,"cat.keyboard, best-practice",failure,
+area-alt,Active <area> elements must have alternate text,"Screen readers have no way of translating images into words. It is important
+  that all images, including image maps, have alt text values.
+
+
+  Screen readers typically announce the filename of the image if alternative
+  text is missing. Filenames do not adequately describe images and are not
+  helpful to screen reader users.","An image map is a single image with many clickable areas. Like all images, an
+  image map must have alternate text for each of the different
+  clickable areas, as well as for the larger image itself, since screen readers
+  have no way of translating graphics into text.","Blind, Deafblind, Mobility",Ensures <area> elements of image maps have alternate text,Critical,"cat.text-alternatives, wcag2a, wcag244, wcag412, section508, section508.22.a, TTv5, TT6.a, EN-301-549, EN-9.2.4.4, EN-9.4.1.2, ACT","failure, needs review",c487ae
+th-has-data-cells,"All <th> elements and elements with role=""columnheader"" or role=""rowheader"" must have data cells they describe","Screen readers have a specific way of announcing tables. When tables are not
+  properly marked up, this creates the opportunity for confusing or inaccurate
+  screen reader output.
+
+
+  When tables are not marked up semantically and do not have the correct header
+  structure, screen reader users cannot correctly perceive the relationships
+  between the cells and their contents visually.","Data table markup can be tedious and confusing. Markup tables semantically and
+  with the correct header structure. Screen readers have features to ease table
+  navigation, but tables must be marked up accurately for these features to work
+  correctly.","Blind, Deafblind",Ensure that <th> elements and elements with role=columnheader/rowheader have data cells they describe,Serious,"cat.tables, wcag2a, wcag131, section508, section508.22.g, TTv5, TT14.b, EN-301-549, EN-9.1.3.1","failure, needs review",d0f69e
+td-headers-attr,All cells in a <table> element that use the headers attribute must only refer to other cells of that same <table>,"Screen readers have a specific way of announcing tables. When tables are not
+  properly marked up, this creates the opportunity for confusing or inaccurate
+  screen reader output.
+
+
+  Sighted users can usually tell at a glance what the table's headers are and
+  what their relationship to the data is. For non-sighted users this must be
+  done in the markup.
+
+
+  When a data table is designed with accessibility in mind, the user enters into
+  table navigation mode, which allows the user to navigate from cell to cell
+  within the table while hearing the screen reader announce the corresponding
+  table headers for the data cells. Hearing the table headers is especially
+  helpful when navigating through large data tables, or when cells contain
+  similar-sounding data that could be easily confused.
+
+
+  Table navigation mode is not useful, though, if the table lacks accessibility
+  features.","Data table markup can be tedious and confusing. Markup tables semantically and
+  with the correct header structure. Screen readers have features to ease table
+  navigation, but tables must be marked up accurately for these features to work
+  correctly.","Blind, Deafblind",Ensure that each cell in a table that uses the headers attribute refers only to other cells in that table,Serious,"cat.tables, wcag2a, wcag131, section508, section508.22.g, TTv5, TT14.b, EN-301-549, EN-9.1.3.1","failure, needs review",a25f45
+td-has-header,All non-empty <td> elements in tables larger than 3 by 3 must have an associated table header,"Screen readers have a specific way of announcing tables. When tables are not
+  properly marked up, this creates the opportunity for confusing or inaccurate
+  screen reader output.
+
+
+  When tables are not marked up semantically and do not have the correct header
+  structure, screen reader users cannot correctly perceive the relationships
+  between the cells and their contents visually.","Data table markup can be tedious and confusing. Tables must be marked up done
+  semantically and with the correct header structure. Screen readers have
+  features to ease table navigation, but tables must be marked up accurately for
+  these features to work correctly.","Blind, Deafblind",Ensure that each non-empty data cell in a <table> larger than 3 by 3 has one or more table headers,Critical,"cat.tables, experimental, wcag2a, wcag131, section508, section508.22.g, TTv5, TT14.b, EN-301-549, EN-9.1.3.1",failure,
+region,All page content must be contained by landmarks,"Navigating a web page is far simpler for screen reader users if the content
+  splits between multiple high-level sections. Content outside of sections is
+  difficult to find, and the content's purpose may be unclear.
+
+
+  Historically, HTML lacked some key semantic markers such as the ability to
+  designate sections of the page as the header, navigation, main content, and
+  footer. Using both HTML5 elements and ARIA landmarks in the same element is
+  considered a best practice, but the future favors using native HTML5 element
+  regions as browser support increases.","It is best practice to contain all content excepting skip links, within
+  distinct regions such as the header, nav, main, and footer.","Blind, Deafblind, Mobility",Ensure elements that have scrollable content are accessible by keyboard,Serious,"cat.keyboard, wcag2a, wcag211, TTv5, TT4.a, EN-301-549, EN-9.2.1.1",failure,0ssw9k
+color-contrast-enhanced,All text elements must have sufficient contrast between text in the foreground and background colors behind it in accordance with WCAG 2 AAA contrast ratio thresholds.,"Some people with low vision experience low contrast, meaning that there aren't
+  very many bright or dark areas. Everything tends to appear about the same
+  brightness, which makes it hard to distinguish outlines, borders, edges, and
+  details. Text that is too close in luminance (brightness) to the background
+  can be hard to read.
+
+
+  There are nearly three times more individuals with low vision than those with
+  total blindness. One in twelve people cannot see the average full spectrum of
+  colors - about 8% of men and 0.4% of women in the US. A person with low vision
+  or color blindness is unable to distinguish text against a background without
+  sufficient contrast.
+
+Color transparency and opacity is taken into account in the background.
+
+  Color transparency and opacity in the foreground is more difficult to detect
+  and account for due to:
+
+
+1:1 colors in foreground and background.
+CSS background gradients.
+Background colors in CSS pseudo-elements.
+Background colors created with CSS borders.
+
+    Overlap by another element in the foreground - this sometimes comes up with
+    tricky positioning.
+  
+Elements moved outside the viewport via CSS.","All text elements must have sufficient contrast between text in the foreground
+  and background colors behind it in accordance with WCAG 2 AAA contrast ratio
+  thresholds.",Low Vision,Ensures the contrast between foreground and background colors meets WCAG 2 AAA enhanced contrast ratio thresholds,Serious,"cat.color, wcag2aaa, wcag146, ACT","failure, needs review",09o5cg
+href-no-hash,Anchors must only be used as links with valid URLs or URL fragments,"Inaccessible link elements pose barriers to accessibility, as they are a
+  fundamental component of a website.
+
+
+  Users who rely exclusively on a keyboard (and no mouse) to navigate a webpage
+  can only click on links that can receive programmatic focus. If a link cannot
+  receive programmatic focus, it will be inaccessible to these users.
+
+
+  Like sighted users, screen reader users need to know where a link is pointing.
+  Inner link text provides this information, though it won't be useful if a
+  screen reader can't access it.
+
+
+  Keyboard users — such as blind screen reader users or people who cannot use a
+  mouse due to tremors in their hands — can activate only the links and form
+  elements that can receive programmatic focus. They cannot activate anything
+  that cannot receive a programmatic focus. If any events are activated
+  exclusively by the other types of focus, for example
+  onmouseover events that depend on the mouse hover focus — those
+  events will be inaccessible to keyboard users. By default, only links and form
+  elements receive keyboard focus. Other elements can be modified to receive
+  focus by adding tabindex=""0"".","Anchor links must be used with valid URLs or URL fragments so that they are
+  discernible by a screen reader.","Blind, Deafblind, Mobility",,,,,
+aria-valid-attr,ARIA attributes must conform to valid names,"If the developer uses a non-existent or misspelled ARIA attribute, the
+  attribute will not be able to perform the accessibility function intended by
+  the developer.
+
+
+  In order to allow assistive technologies to convey appropriate information to
+  persons with disabilities, user interface elements intended to improve the
+  accessibility and interoperability of web and application content must conform
+  to properly spelled and current ARIA attributes.
+
+
+  When developers do not use attributes defined in the WAI-ARIA 1.1 W3C
+  Recommendation, they do not properly convey user interface behaviors and
+  structural information to assistive technologies in document-level markup.","ARIA attributes starting with aria- must have valid names.
+  Referring to a misspelled attribute or to one that does not exist will result
+  in an invalid attribute and thus failure of this rule.","Blind, Deafblind, Mobility",Ensures all ARIA attributes have valid values,Critical,"cat.aria, wcag2a, wcag412, EN-301-549, EN-9.4.1.2","failure, needs review",6a7281
+aria-valid-attr-value,ARIA attributes must conform to valid values,"ARIA attributes (i.e. starting with aria-) must contain valid
+  values. These values must be spelled correctly and correspond to values that
+  make sense for a particular attribute to perform the intended accessibility
+  function.
+
+
+  Many ARIA attributes accept a specific set of values. Allowed values,
+  acceptable ""undefined"" values, and acceptable ""default"" values are required.
+  Failure to comply with allowed values results in content that is not
+  accessible to assistive technology users.","ARIA attributes starting with aria- must contain valid values.
+  These values must be spelled correctly and correspond to values that make
+  sense for a particular attribute in order to perform the intended
+  accessibility function.","Blind, Deafblind, Mobility",Ensures all ARIA attributes have valid values,Critical,"cat.aria, wcag2a, wcag412, EN-301-549, EN-9.4.1.2","failure, needs review",6a7281
+aria-command-name,"ARIA button, link, and menuitem must have an accessible name","Screen reader users are not able to discern the purpose of elements with
+  role=""link"", role=""button"", or
+  role=""menuitem"" that do not have an accessible name.","ARIA command elements must have discernible text that clearly describes the
+  destination, purpose, function, or action for screen reader users.","Blind, Low Vision, Mobility","Ensures every ARIA button, link and menuitem has an accessible name",Serious,"cat.aria, wcag2a, wcag412, TTv5, TT6.a, EN-301-549, EN-9.4.1.2, ACT","failure, needs review",97a4e1
+aria-dialog-name,ARIA dialog and alertdialog must have an accessible name,"Screen reader users are not able to discern the purpose of elements with
+  role=""dialog"" or role=""alertdialog"" that do not have
+  an accessible name.","Aria dialog elements must have discernible text that clearly describes the
+  destination, purpose, function, or action for screen reader users.","Blind, Low Vision, Mobility",Ensures every ARIA dialog and alertdialog node has an accessible name,Serious,"cat.aria, best-practice","failure, needs review",
+aria-input-field-name,ARIA input fields must have an accessible name,"This new rule ensures every ARIA input field has an accessible name.
+  Accessible names must exist for the following input field roles:
+
+
+combobox
+listbox
+searchbox
+slider
+spinbutton
+textbox",Ensures every ARIA input field has an accessible name.,"Blind, Deafblind, Mobility",Ensures every ARIA input field has an accessible name,Serious,"cat.aria, wcag2a, wcag412, TTv5, TT5.c, EN-301-549, EN-9.4.1.2, ACT","failure, needs review",e086e5
+aria-meter-name,ARIA meter must have an accessible name,"Screen reader users are not able to discern the purpose of elements with
+  role=""meter"" that do not have an accessible name.","Aria meter elements must have discernible text that clearly describes the
+  destination, purpose, function, or action for screen reader users.","Blind, Low Vision, Mobility",Ensures every ARIA meter node has an accessible name,Serious,"cat.aria, wcag2a, wcag111, EN-301-549, EN-9.1.1.1","failure, needs review",
+aria-progressbar-name,ARIA progressbar must have an accessible name,"Screen reader users are not able to discern the purpose of elements with
+  role=""progressbar"" that do not have an accessible name.","Aria progressbar elements must have discernible text that clearly describes
+  the destination, purpose, function, or action for screen reader users.","Blind, Low Vision, Mobility",Ensures every ARIA progressbar node has an accessible name,Serious,"cat.aria, wcag2a, wcag111, EN-301-549, EN-9.1.1.1","failure, needs review",
+aria-allowed-role,ARIA role must be appropriate for the element,"Intended accessible technology behavior by a developer is not enabled when an
+  assigned WAI-ARIA role value is invalid for the parent element.
+
+
+  When screen readers and other assistive technologies do not know the role of
+  each element on the web page, they are not able to interact with it
+  intelligently, nor are they able to communicate the role to the user. When the
+  value for a role is invalid, there is no way to communicate the element's
+  features, properties, and methods to assistive technologies. For example,
+  applying role=""table"" to a <ul> effectively
+  hijacks the default semantics associated with the
+  <ul> element in a way that screenreaders do not expect
+  resulting in unexpected behavior.","Values assigned to WAI-ARIA role attributes must be valid. This means values
+  must be spelled correctly, correspond to existing ARIA
+  role values, and
+  must not be abstract roles in order to correctly expose the purpose of the
+    element.","Blind, Deafblind, Mobility",Ensures role attribute has an appropriate value for the element,Minor,"cat.aria, best-practice","failure, needs review",
+aria-roles,ARIA roles used must conform to valid values,"Elements assigned invalid ARIA role values are not interpreted by assistive
+  technology as intended by the developer.
+
+
+  When screen readers and other assistive technologies do not know the role of
+  each element on the web page, they are not able to interact with it
+  intelligently, nor are they able to communicate the role to the user. An
+  element's features, properties, and methods of conveying information to and/or
+  from the user can't be communicated via assistive technologies when a role
+  value is invalid.","Values assigned to ARIA role values must be valid. Role values must be spelled
+  correctly, correspond to existing ARIA role values, and must not
+  be abstract roles to correctly expose the purpose of the element.","Blind, Deafblind, Mobility",Ensures all elements with a role attribute use a valid value,Critical,"cat.aria, wcag2a, wcag412, EN-301-549, EN-9.4.1.2",failure,674b10
+aria-toggle-field-name,ARIA toggle fields have an accessible name,"Ensures every element with a semantic role also has an accessible name.
+  Semantic roles include:
+
+
+checkbox
+menu
+menuitemcheckbox
+menuitemradio
+radio
+radiogroup
+switch",Ensures every ARIA toggle field has an accessible name.,"Blind, Deafblind, Mobility",Ensures every ARIA toggle field has an accessible name,Serious,"cat.aria, wcag2a, wcag412, TTv5, TT5.c, EN-301-549, EN-9.4.1.2, ACT","failure, needs review",e086e5
+aria-tooltip-name,ARIA tooltip must have an accessible name,"Screen reader users are not able to discern the purpose of elements with
+  role=""tooltip"" that do not have an accessible name.","Aria tooltip elements must have discernible text that clearly describes the
+  destination, purpose, function, or action for screen reader users.","Blind, Low Vision, Mobility",Ensures every ARIA tooltip node has an accessible name,Serious,"cat.aria, wcag2a, wcag412, EN-301-549, EN-9.4.1.2","failure, needs review",
+aria-treeitem-name,ARIA treeitem must have an accessible name,"Screen reader users are not able to discern the purpose of elements with
+  role=""treeitem"" that do not have an accessible name.","Aria treeitem elements must have discernible text that clearly describes the
+  destination, purpose, function, or action for screen reader users.","Blind, Low Vision, Mobility",Ensures every ARIA treeitem node has an accessible name,Serious,"cat.aria, best-practice","failure, needs review",
+aria-hidden-focus,aria-hidden elements do not contain focusable elements,"Using the aria-hidden=""true"" attribute on an element removes the
+  element and ALL of its child nodes from the accessibility API making it
+  completely inaccessible to screen readers and other assistive technologies.
+  Aria-hidden may be used with extreme caution to hide visibly rendered content
+  from assistive technologies only if the act of hiding this content is intended
+  to improve the experience for users of assistive technologies by removing
+  redundant or extraneous content. If aria-hidden is used to hide visible
+  content from screen readers, the identical or equivalent meaning and
+  functionality must be exposed to assistive technologies.
+
+
+Note: Using aria-hidden=""false"" on content that
+  is a descendent of an element that is hidden using
+  aria-hidden=""true"" will NOT expose that content to the
+  accessibility API and it will not be accessible to screen readers or other
+  assistive technologies.
+
+
+  The rule applies to any element with an
+  aria-hidden=""true"" attribute.
+
+
+  By adding aria-hidden=""true"" to an element, content authors
+  ensure that assistive technologies will ignore the element. This can be used
+  to hide decorative parts of a web page, such as icon fonts - that are not
+  meant to be read by assistive technologies.
+
+
+  A focusable element with aria-hidden=""true"" is ignored as part of
+  the reading order, but still part of the focus order, making it’s state of
+  visible or hidden unclear.
+
+
+
+
+https://www.w3.org/WAI/WCAG21/Understanding/name-role-value.html
+
+
+
+
+https://www.w3.org/TR/wai-aria-1.1/#aria-hidden
+
+
+
+
+https://www.w3.org/TR/html/editing.html#can-be-focused","This rule checks aria-hidden elements do not contain focusable
+  elements.","Blind, Low Vision, Deafblind, Mobility",Ensures aria-hidden elements are not focusable nor contain focusable elements,Serious,"cat.name-role-value, wcag2a, wcag412, TTv5, TT6.a, EN-301-549, EN-9.4.1.2","failure, needs review",6cfa84
+aria-hidden-body,"aria-hidden=""true"" must not be present on the document <body>","When <body aria-hidden=""true"", content is not
+  accessible to assistive technology.
+
+
+  Applying aria-hidden=""true"" to otherwise accessible objects: A
+  web page is designed to be fully accessible, and it would be accessible if
+  elements do not contain the
+  aria-hidden=""true"" attribute value. Screen readers do
+  not read content marked with the
+  aria-hidden=""true"" attribute value. Users can still tab
+  to focusable elements in the hidden objects, but screen readers remain silent.
+
+
+  Any content or interface elements intentionally hidden from users — e.g.,
+  inactive dialogs, collapsed menus — must also be hidden from screen reader
+  users. When items are available to sighted users — such as when they activate
+  a button or expand a menu item — the same items must be available to screen
+  reader users. The goal is to provide screen reader users an equivalent user
+  experience to sighted users. If there is a compelling reason to hide content
+  from sighted users, there is usually a compelling reason also to hide that
+  content from blind users. Further, when content is made available to sighted
+  users, it makes sense to make it available to blind users as well.","Document content is not accessible to assistive technology if
+  <body aria-hidden=""true"">.",Blind,Ensures aria-hidden='true' is not present on the document body.,Critical,"cat.aria, wcag2a, wcag412, EN-301-549, EN-9.4.1.2",failure,
+no-autoplay-audio,Audio must have controls that provide users with the ability to stop automatically played audio after three seconds,"People who are blind or have low vision and use screen reading software can
+  find it hard to hear the screen reader's speech output if there is other audio
+  playing at the same time. If automatically playing audio lasts more than three
+  seconds, an easily located, accessible mechanism must be provided to pause or
+  stop the audio or control the audio volume. An audio control allows screen
+  reader users to hear the screen reader without other sounds playing.
+
+
+Note:
+
+    Playing audio automatically when landing on a page may affect a screen
+    reader user's ability to find the mechanism to stop it because they navigate
+    by listening and automatically started sounds might interfere with that
+    navigation. Therefore, we discourage the practice of automatically starting
+    sounds (especially if they last more than three seconds), and encourage that
+    the sound be started by an action initiated by the user after they reach the
+    page, rather than requiring that the sound be stopped by an action of the
+    user after they land on the page.","Ensures <video> or <audio> elements do not autoplay audio for more
+  than three seconds without a control mechanism to stop or mute the audio.","Blind, Deafblind, Cognitive",Ensures <video> or <audio> elements do not autoplay audio for more than 3 seconds without a control mechanism to stop or mute the audio,Moderate,"cat.time-and-media, wcag2a, wcag142, TTv5, TT2.a, EN-301-549, EN-9.1.4.2, ACT",needs review,80f0bf
+autocomplete-valid,Autocomplete attribute must be used correctly,"Failure to provide autocomplete values in form fields results in inaccessible
+  content. Screen readers do not read identified autocomplete form fields if the
+  appropriate autocomplete attribute values are missing. Users cannot correctly
+  navigate forms when screen readers cannot provide adequate information to the
+  user regarding form field interaction requirements.","The purpose for each common input field that collects an individual's personal
+  data is programmatically defined based on the list of 53 Input Purposes for
+  User Interface Components. The autocomplete attribute values must be valid and
+  correctly applied for screen readers to function correctly.","Attention Deficit, Blind, Low Vision, Deafblind, Mobility, Cognitive",Ensure the autocomplete attribute is correct and suitable for the form field,Serious,"cat.forms, wcag21aa, wcag135, EN-301-549, EN-9.1.3.5, ACT",failure,73f2c2
+landmark-banner-is-top-level,Banner landmark must not be contained in another landmark,"If the banner landmark is not the top-level landmark (and is contained within
+  another landmark), it does not effectively designate the pre-defined header
+  portion of the layout in the design and therefore prevents screen reader users
+  from being able to easily find their way around the layout.
+
+
+Note
+
+    Landmarks are used to designate sections of the overall page design and
+    layout. Headings are used to designate sections within the content.",Banner landmark must not be contained in another landmark.,"Blind, Deafblind",Ensures the banner landmark is at top level,Moderate,"cat.semantics, best-practice",failure,
+p-as-heading,"Bold, italic text and font-size are not used to style <p> elements as a heading","The underlying purpose of headers is to convey the structure of the page.
+  Sighted users can see structure by using different sizes of text. Screen
+  reader users, though, require heading elements to be marked up explicitly.
+  When heading elements are properly applied the page becomes much easier to
+  navigate for screen reader users and sighted users alike.
+
+
+  In the same way that sighted users can glance at a page and get a sense of its
+  contents, users of screen readers can do the same by navigating through
+  headings. Well written and properly ordered headings can save users,
+  especially those who use screen readers, a lot of time and frustration.
+
+
+  The purpose of headings is to describe the structure of the webpage, not just
+  highlight important text. They should be brief, clear, unique, and marked with
+  h1 through h6 elements in hierarchical order. All of
+  these qualities make headings are a valuable tool for users of screen readers.
+  In the same way that sighted users can glance at a page and get a sense of its
+  contents, users of screen readers can do the same by navigating through
+  headings. Well written and properly ordered headings can save users,
+  especially those who use screen readers, a lot of time and frustration.
+
+
+  In addition to making the page more accessible, headings have other benefits,
+  since search engines use headings when filtering, ordering, and displaying
+  results. Improving the accessibility of your site can also have the effect of
+  making your page more findable.","Styled p elements must not be used to represent headings because
+  the structure of the document cannot otherwise be determined by screen reader
+  users.","Blind, Deafblind, Mobility","Ensure bold, italic text and font-size is not used to style <p> elements as a heading",Serious,"cat.semantics, wcag2a, wcag131, EN-301-549, EN-9.1.3.1, experimental","failure, needs review",
+button-name,Buttons must have discernible text,"Screen reader users are not able to discern the purpose of elements with
+  role=""link"", role=""button"", or
+  role=""menuitem"" that do not have an accessible name.","Buttons must have discernible text that clearly describes the destination,
+  purpose, function, or action for screen reader users.
+
+
+  The input-button-name rule separates functionality from the
+  button-name rule to ensure that input buttons have discernible
+  text; advise relevant to input button names was incorrect for button elements.","Blind, Deafblind",Ensures buttons have discernible text,Critical,"cat.name-role-value, wcag2a, wcag412, section508, section508.22.a, TTv5, TT6.a, EN-301-549, EN-9.4.1.2, ACT","failure, needs review","97a4e1, m6b1q3"
+aria-required-parent,Certain ARIA roles must be contained by particular parent elements,"For each role, WAI-ARIA explicitly defines which child and parent roles are
+  allowable and/or required. Elements containing ARIA role values
+  missing required parent element role values will not enable
+  assistive technology to function as intended by the developer.
+
+
+  When it is necessary to convey context to the user of assistive technology in
+  the form of hierarchy (for example, the importance of a parent container, item
+  or sibling in a folder tree), and the hierarchy is not the same as the code
+  structure or DOM tree, there is no way to provide the relationship information
+  without the use of ARIA role parent elements.","Certain ARIA roles must be contained by particular parent roles
+  in order to perform the intended accessibility functions.","Blind, Deafblind, Mobility",Ensures elements with an ARIA role that require parent roles are contained by them,Critical,"cat.aria, wcag2a, wcag131, EN-301-549, EN-9.1.3.1",failure,ff89c9
+aria-required-children,Certain ARIA roles must contain particular children,"For each role, WAI-ARIA explicitly defines which child and parent roles are
+  allowable and/or required. ARIA roles missing required child
+  roles will not be able to perform the accessibility functions
+  intended by the developer.
+
+
+  Assistive technology needs to convey the context to the user. For example, in
+  a treeitem, it is important to know the parent (container), item,
+  or siblings in the folder. This can be done in two ways:
+
+
+
+Code order or DOM: The necessary context is often clear
+    from the code order or DOM.
+  
+
+ARIA: ARIA (such as aria-owns) can be used
+    provide the relationships when the hierarchy is not the same as the code
+    structure or DOM tree.","Some ARIA parent role values applied to elements must contain
+  specific child elements and role values to perform intended
+  accessibility function.","Blind, Deafblind, Mobility",Ensures elements with an ARIA role that require child roles contain them,Critical,"cat.aria, wcag2a, wcag131, EN-301-549, EN-9.1.3.1","failure, needs review","bc4a75, ff89c9"
+checkboxgroup,Checkbox inputs with the same name attribute value must be part of a group,"It is often easy for sighted users to understand the purpose of a group of
+  checkboxes based on context. This is not, however, always the case for screen
+  reader users. Grouping checkboxes together programmatically under a clear,
+  descriptive name eliminates the ambiguity screen reader users experience to
+  create a more accessible product.
+
+
+  One limitation of the label tag is that it can be associated with
+  only one form element. If circumstances require a more complex labeling
+  structure, the label tag is insufficient. This is where
+  aria-label and aria-labelledby come in. Grouping
+  related form input elements such as checkboxes by placing a box around them
+  visually does not group them programmatically so that screen readers can read
+  a group label when screen reader users arrive at the group.","All checkbox groups must have either a proper
+  aria-labelledby value for all group members, or a proper
+  containing fieldset or ARIA group to associate them
+  programmatically for screen reader users.","Blind, Deafblind, Mobility",,,,,
+landmark-complementary-is-top-level,Complementary landmarks and/or asides are top level,"Complementary content is ancillary content to the main theme of a document or
+  page. Screen reader users have the option to skip over complementary content
+  when it appears at the top level of the accessibility API. Embedding an
+  <aside> element in another landmark may disable screen
+  reader functionality allowing users to navigate through complementary content.",Ensures the complementary landmark or aside is at top level,"Sighted Keyboard Users, Blind, Deafblind, Mobility",Ensures the complementary landmark or aside is at top level,Moderate,"cat.semantics, best-practice",failure,
+landmark-contentinfo-is-top-level,Contentinfo landmark must not be contained in another landmark,"The purpose of the contentinfo landmark can be defeated when
+  placed within another landmark, as it can prevent blind screen reader users
+  from being able to quickly find and navigate to the appropriate landmark.
+
+
+  When screen reader users have to sort through too much extra information to
+  find what they're looking for, such as not being able to quickly figure out
+  which landmark contains the content information they're looking for negates
+  the purpose of an existing contentinfo landmark.",Contentinfo landmark must be at top level.,"Sighted Keyboard Users, Blind, Deafblind",Ensures the contentinfo landmark is at top level,Moderate,"cat.semantics, best-practice",failure,
+css-orientation-lock,CSS Media queries are not used to lock display orientation,"Assistive technology users may be unable to access orientation features with
+  their devices or assistive technologies.","The screen orientation (e.g. portrait or landscape) of mobile applications
+  should not be locked in one mode. Users should be able to change the
+  orientation of their device between portrait and landscape with the page
+  adjusting accordingly in order to remain understandable. Also, when opening a
+  page, it should display in the user’s current orientation.","Attention Deficit, Dyslexia, Sighted Keyboard Users, Low Vision, Mobility, Cognitive","Ensures content is not locked to any specific display orientation, and the content is operable in all display orientations",Serious,"cat.structure, wcag134, wcag21aa, EN-301-549, EN-9.1.3.4, experimental","failure, needs review",b33eff
+table-fake-caption,Data or header cells should not be used to give caption to a data table,"Screen readers have a specific way of announcing tables. When tables are not
+  properly marked up, this creates the opportunity for confusing or inaccurate
+  screen reader output.
+
+
+  When tables are not marked up with an actual caption element instead of using
+  a colspan element on cells to visually indicate a caption, screen
+  reader users cannot correctly perceive the purpose of the table visually.","Data table markup can be tedious and confusing. Screen readers have some
+  features to ease table navigation, but tables must be marked up accurately for
+  these features to work correctly. Some tables use cells with a
+  colspan element to visually indicate a caption, instead of using
+  an actual caption element.","Blind, Deafblind",Ensure that tables with a caption use the <caption> element.,Serious,"cat.tables, experimental, wcag2a, wcag131, section508, section508.22.g, EN-301-549, EN-9.1.3.1",failure,
+document-title,Documents must contain a title element to aid in navigation,"Screen reader users use page titles to get an overview of the contents of the
+  page. Navigating through pages can quickly become difficult and confusing for
+  screen reader users if the pages are not marked with a title. The page
+  title element is the first thing screen reader users hear when
+  first loading a web page.
+
+
+  The title is the first thing that screen reader users hear when
+  they arrive at a page. If there is no title or if the
+  title is not descriptive and unique, screen reader users must
+  read through the page to determine its contents and purpose.","The HTML document must have a title element to provide users with
+  an overview of its content, and when present, it must not be empty.","Blind, Deafblind, Mobility",Ensures each HTML document contains a non-empty <title> element,Serious,"cat.text-alternatives, wcag2a, wcag242, TTv5, TT12.a, EN-301-549, EN-9.2.4.2, ACT",failure,2779a5
+role-img-alt,"Elements containing role=""img"" have an alternative text","Screen readers have no way of translating an image into words that gets read
+  to the user, even if the image only consists of text. As a result, it's
+  necessary for images to have short, descriptive and accessible alternative
+  text so screen reader users clearly understand the image's contents and
+  purpose.
+
+
+  If you can't see, all types of visual information, including images, are
+  completely useless unless an accessible text alternative is provided which
+  screen readers can convert into either sound or braille. People with low
+  vision or color-blindness disabilities also require accessible alternative
+  text to varying degrees.
+
+
+  Screen readers cannot convert visual image information to speech or braille in
+  the absence of an accessible text alternative associated with the image.","Ensures elements marked role=""img"" elements have alternate text.","Blind, Deafblind",Ensures [role='img'] elements have alternate text,Serious,"cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, TTv5, TT7.a, EN-301-549, EN-9.1.1.1, ACT","failure, needs review",23a2a8
+focus-order-semantics,Elements in the focus order need a role appropriate for interactive content,"Elements in the focus order need a role appropriate for interactive content so
+  that screen reader technology can communicate that information to users.
+
+
+  If interactive content elements do not have appropriate roles, the role will
+  not be able to perform the accessibility function intended by the developer.
+
+
+  When screen readers and other assistive technologies do not know the
+  appropriate role of each element on the web page, they are not able to
+  interact with it intelligently, nor are they able to communicate the role to
+  the user. When the value for a role is not valid, there is no way the HTML
+  element's set of features, properties, and methods of conveying information to
+  and/or from the user can be communicated via assistive technologies.","User input elements must have appropriate roles, whether native HTML or a
+  custom widget, to convey to screen reader users their meaning when landed on
+  and given focus. If a custom widget, appropriate ARIA role values
+  must be used instead of abstract roles to correctly expose the purpose of the
+  element.","Blind, Deafblind, Mobility",Ensures elements in the focus order have a role appropriate for interactive content,Minor,"cat.keyboard, best-practice, experimental",failure,
+aria-allowed-attr,Elements must only use allowed ARIA attributes,"Using ARIA attributes in roles where they are not allowed can interfere with
+  the accessibility of the web page. Using an invalid role-attribute combination
+  will, at best, result in no effect on the accessibility of the application
+  and, at worst, may trigger behavior that disables accessibility for entire
+  portions of an application.
+
+
+  When ARIA attributes are used on HTML elements that are not in accordance with
+  WAI-ARIA 1.1, they conflict with the semantics of the elements which can cause
+  assistive technology products report nonsensical user interface (UI)
+  information that does not represent the actual UI of the document.","Not all ARIA role-attribute combinations are valid. This Rule checks that each
+  role is supplied with allowed attributes.","Blind, Deafblind, Mobility",Ensures an element's role supports its ARIA attributes,Critical,"cat.aria, wcag2a, wcag412, EN-301-549, EN-9.4.1.2","failure, needs review",5c01ea
+tabindex,Elements should not have tabindex greater than zero,"Using tabindex with a value greater than 0 can create as many
+  problems as it solves. It creates an unexpected tab order, which makes the
+  page less intuitive and can give the appearance of skipping certain elements
+  entirely.
+
+
+  Here are some of the problems that tabindex (with a value of 1 or
+  greater) causes:
+
+
+
+Unexpected tab order: From the perspective of the user,
+    tabindex changes the default tab order in unexpected ways,
+    possibly causing disorientation.
+  
+
+Items can appear to be skipped entirely: Items appear in
+    the tab order only once. If a user tabs past the tabindex items
+    and continues through the rest of the web page, at some point the user
+    arrives at the location of the tabindex items, but the tabbing
+    process skips over these links, because the user already tabbed through them
+    at the beginning of the cycle. Incorrect tab orders are frustrating when
+    users are unable access items, and may not know that (s)he needs to cycle
+    through the entire set of links on the page to reaccess those links.
+  
+
+All tabindex items are tabbed to before any non-tabindex
+      items.
+    If you want to change the tab order of the first items AND of a section
+    later in the page, you would need to set the tabindex value for
+    every single item through to the end of the modified section. Taken to a bit
+    of an extreme, if you have 20 links on a page, and if you set the
+    tabindex of one of those links to tabindex=""100"",
+    the user tabs to that link first, even though there are fewer than 100 links
+    on the page. There is no way to modify the tab order of sections later in
+    the page unless you manually set the tab order of all the links before that
+    section.","A tabindex attribute must never have a value greater than 0 to
+  prevent an unexpected tab order that can give the appearance of skipping some
+  elements entirely.","Blind, Deafblind, Mobility",Ensures tabindex attribute values are not greater than 0,Serious,"cat.keyboard, best-practice",failure,
+presentation-role-conflict,Elements whose role is none or presentation must not conflict with other roles,"There are certain cases where the semantic role of an element with
+  role=""none"" or role=""presentation"" does not resolve
+  to none or presentation (respectively). When this happens, the element is not
+  removed from the accessibility tree (as expected) and screen readers are able
+  to interact with it.
+
+
+  To ensure the element remains removed from the accessibility tree, you should
+  not add any global ARIA attributes to the element or make if focusable.","Ensures elements which are marked to be removed from the accessibility tree
+  are in fact removed.","Blind, Low Vision, Mobility",Elements marked as presentational should not have global ARIA or tabindex to ensure all screen readers ignore them,Minor,"cat.aria, best-practice, ACT",failure,46ca7f
+identical-links-same-purpose,Ensure that links with the same accessible name serve a similar purpose,"This rule is important because the intention is to to help users understand
+  the purpose of each link in the content, so they can decide whether they want
+  to follow it. Best practice is that links with the same destination would have
+  the same descriptions, but links with different purposes and destinations
+  would have different descriptions (see also
+  Success Criterion 3.2.4
+  which calls for consistency in identifying components that have the same
+  functionality). Because the purpose of a link can be identified from its link
+  text, links can be understood when they are out of context, such as when the
+  user agent provides a list of all the links on a page.",Ensure that links with the same accessible name serve a similar purpose.,"Blind, Deafblind",Ensure that links with the same accessible name serve a similar purpose,Minor,"cat.semantics, wcag2aaa, wcag249",needs review,b20e66
+scrollable-region-focusable,Ensure that scrollable region has keyboard access,"Checks scrollable content for focusable elements enabling keyboard navigation.
+  Keyboard navigation should not fail when focus moves to an element within a
+  scrollable region.",Elements that have scrollable content should be accessible by keyboard,"Blind, Deafblind, Mobility",Ensure elements that have scrollable content are accessible by keyboard,Serious,"cat.keyboard, wcag2a, wcag211, TTv5, TT4.a, EN-301-549, EN-9.2.1.1",failure,0ssw9k
+frame-focusable-content,Ensures  <frame> and <iframe> elements with focusable content do not have tabindex=-1,"When a frame has a negative tabindex, the browser is prevented from
+  redirecting the focus to the content inside that frame. This causes all its
+  content from getting skipped in keyboard navigation, and if the frame is
+  scrollable also prevents the focus from reaching any element from which the
+  frame can be scrolled with the keyboard.","%lt;frame%gt; and %lt;iframe%gt; elements with
+  focusable content must not have tabindex=""-1"".","Blind, Mobility",Ensures <frame> and <iframe> elements with focusable content do not have tabindex=-1,Serious,"cat.keyboard, wcag2a, wcag211, TTv5, TT4.a, EN-301-549, EN-9.2.1.1","failure, needs review",akn7bn
+aria-text,"Ensures role=""text"" is used on elements with no focusable descendants","When a text node is split by markup (e.g.
+  <h1>Hello <span>World</span></h1>)
+  VoiceOver will treat it as two separate phrases instead of just one. Adding
+  role=""text"" around the elements solves the problem. However, it
+  also overrides the role of the element and all descendants and treats them all
+  as text nodes. If one of the descendant elements is also focusable it would
+  create an empty tab stop. That is, you could tab to the element but VoiceOver
+  would not announce its name, role, or value.","Elements with role=""text"" must not have focusable descendants.","Blind, Mobility","Ensures ""role=text"" is used on elements with no focusable descendants",Serious,"cat.aria, best-practice","failure, needs review",
+empty-table-header,Ensures table headers have discernible text,"Table header elements should have visible text that describes the purpose of
+  the row or column to both sighted users and screen reader users.","Table header elements should have visible text. Ensure that the table header
+  can be used by screen reader users. If the element is not a header, marking it
+  up with a `td` is more appropriate.","Blind, Low Vision",Ensures table headers have discernible text,Minor,"cat.name-role-value, best-practice","failure, needs review",
+landmark-no-duplicate-main,Ensures the document has at most one main landmark,"Navigating a web page is far simpler for screen reader users if all of the
+  content splits between one or more high-level sections. Content outside of
+  these sections is difficult to find, and its purpose may be unclear.
+
+
+  HTML has historically lacked some key semantic markers, such as the ability to
+  designate sections of the page as the header, navigation, main content, and
+  footer. Using both HTML5 elements and ARIA landmarks in the same element is
+  considered a best practice, but the future will favor HTML regions as browser
+  support increases.","It is a best practice to ensure that there is only one main landmark to
+  navigate to the primary content of the page and that if the page contains
+  iframe elements, each should either contain no landmarks, or just
+  a single landmark.","Blind, Deafblind, Mobility",Ensures the document has at most one main landmark,Moderate,"cat.semantics, best-practice",failure,
+label,Form <input> elements must have labels,"Effective form labels are required to make forms accessible. The purpose of
+  form elements such as checkboxes, radio buttons, input fields, etcetera, is
+  often apparent to sighted users, even if the form element is not
+  programmatically labeled. Screen readers users require useful form labels to
+  identify form fields. Adding a label to all form elements eliminates ambiguity
+  and contributes to a more accessible product.
+
+
+  When labels for form elements are absent, screen reader users do not know the
+  input data expectations. Screen readers cannot programmatically determine
+  information about input objects without an established label relationship (or
+  redundant text serving as a label).
+
+
+  The absence of labels prevent fields from receiving focus when read by screen
+  readers, and users with impaired motor control do not get the benefit of a
+  larger clickable area for the control since clicking the label activates the
+  control.",Each form element must have a programmatically associated label element.,"Blind, Low Vision, Deafblind, Mobility",Ensures form field does not have multiple label elements,Moderate,"cat.forms, wcag2a, wcag332, TTv5, TT5.c, EN-301-549, EN-9.3.3.2",needs review,
+label-title-only,Form <input> elements should have a visible label,"The title and aria-describedby attributes are used
+  to provide additional information such as a hint. Hints are exposed to
+  accessibility APIs differently than labels and as such, this can cause
+  problems with assistive technologies.
+
+
+  When form inputs such as text entry fields, radio buttons, check boxes, and
+  select menus contain no labels other than title and
+  aria-describedby attribute values, screen readers interpret the
+  content as advisory information only. Labels created by the
+  title and aria-describedby values are not sufficient
+  to create a true label that can be determined programmatically from the code
+  to convey the purpose of the input form element.","Form <input> elements may be given a title using the
+  title or aria-describedby attributes (but not both).
+  These attributes are used to provide additional information such as a hint.","Blind, Deafblind, Mobility","Ensures that every form element has a visible label and is not solely labeled using hidden labels, or the title or aria-describedby attributes",Serious,"cat.forms, best-practice",failure,
+form-field-multiple-labels,Form fields do not have duplicate labels,"Assigning multiple labels to the same form field can cause problems for some
+  combinations of screen readers and browsers, and the results are inconsistent
+  from one combination to the next. Some combinations will read the first label.
+  Some will read the last label. Others will read both labels.",Ensures form field does not have multiple labels.,"Blind, Low Vision, Deafblind, Mobility",Ensures form field does not have multiple label elements,Moderate,"cat.forms, wcag2a, wcag332, TTv5, TT5.c, EN-301-549, EN-9.3.3.2",needs review,
+frame-tested,Frames must be tested with axe-core,"Without the axe-core script, it is not possible for the tool to perform
+  violation checking on multiple levels of nested iframes.",Frames must be tested with axe-core.,"Sighted Keyboard Users, Blind, Deafblind",Ensures <iframe> and <frame> elements contain the axe-core script,Critical,"cat.structure, best-practice, review-item","failure, needs review",
+frame-title-unique,Frames must have a unique title attribute,"Screen reader users rely on a frame title to describe the contents of the
+  frame. Navigating through frames and iframes can quickly become
+  difficult and confusing for users of this technology if the frames are not
+  marked with a title attribute.
+
+
+  Screen reader users have the option to pull up a list of titles for all frames
+  on a page. Adding descriptive, unique titles allows users to quickly find the
+  frame they need. If no titles are present, navigating through frames can
+  quickly become difficult and confusing. If no title is listed, screen readers
+  will instead give information like “frame,” “javascript,” the filename, or the
+  URL. In most cases, this information won’t be very helpful.","All frame or iframe elements in the document must
+  have a unique title to describe their contents to screen reader users.","Blind, Deafblind, Mobility",Ensures <iframe> and <frame> elements contain a unique title attribute,Serious,"cat.text-alternatives, wcag2a, wcag412, TTv5, TT12.d, EN-301-549, EN-9.4.1.2",needs review,4b1c6c
+frame-title,Frames must have title attribute,"Screen reader users rely on a frame title to describe the contents of the
+  frame. Navigating through frame and
+  iframe elements quickly becomes difficult and confusing for users
+  of this technology if the markup does not contain a
+  title attribute.
+
+
+  Screen reader users have the option to pull up a list of titles for all frames
+  on a page. Adding descriptive, unique titles allows users to quickly find the
+  frame they need. If no titles are present, navigating through frames can
+  quickly become difficult and confusing. If no title is listed, screen readers
+  will instead give information like “frame,” “JavaScript,” the filename, or the
+  URL. In most cases, this information won’t be very helpful.","All frame or iframe elements in the document must
+  have a title that is not empty to describe their contents to screen reader
+  users.","Blind, Deafblind, Mobility",Ensures <iframe> and <frame> elements contain a unique title attribute,Serious,"cat.text-alternatives, wcag2a, wcag412, TTv5, TT12.d, EN-301-549, EN-9.4.1.2",needs review,4b1c6c
+heading-order,Heading levels should only increase by one,"The underlying purpose of headers is to convey the structure of the page. For
+  sighted users, the same purpose is achieved using different sizes of text.
+  Text size, however, is not helpful for users of screen readers, because a
+  screen reader identifies a header only if it is properly marked-up. When
+  heading elements are applied correctly, the page becomes much easier to
+  navigate for screen reader users and sighted users alike.
+
+
+  In the same way that sighted users can glance at a page and get a sense of its
+  contents, users of screen readers can do the same by navigating through
+  headings. Well written and properly ordered headings can save users,
+  especially those who use screen readers, a lot of time and frustration.
+
+
+  The purpose of headings is to describe the structure of the webpage, not just
+  highlight important text. They should be brief, clear, unique, and marked with
+  h1 through h6 elements applied in hierarchical
+  order. All of these qualities make headings valuable tools for screen reader
+  users. Similar to the way sighted users can glance at a page and get a sense
+  of its contents, screen reader users can navigate through headings. Well
+  written and properly ordered headings can save screen reader time and
+  frustration.
+
+
+  In addition to making the page more accessible, headings have other benefits
+  since search engines use headings when filtering, ordering, and displaying
+  results. Improving the accessibility of your site can also have the effect of
+  making your page more findable.","Headings must be in a valid logical order, meaning h1 through
+  h6 element tags must appear in a sequentially-descending order.","Blind, Deafblind, Mobility",Ensures the order of headings is semantically correct,Moderate,"cat.semantics, best-practice","failure, needs review",
+empty-heading,Headings must not be empty,"Screen readers alert users to the presence of a heading tag. If the heading is
+  empty or the text cannot be accessed, this could either confuse users or even
+  prevent them from accessing information on the page's structure.
+
+
+  If the text inside a heading cannot be accessed by a screen reader, users of
+  this technology will not be able to hear the contents of the heading. Since
+  headings relay the structure of a webpage, it's crucial that users of screen
+  readers are able to access the contents.
+
+
+  Applying heading markup (<h1> through
+  ><h6>) is a quick way to make text stand out, however,
+  using it for anything other than headings will make navigating a web page more
+  confusing for users of assistive technology.
+
+
+  In addition to making the page more accessible, headings have other benefits,
+  since search engines use headings when filtering, ordering, and displaying
+  results. Improving the accessibility of your site can also have the effect of
+  making your page more findable.
+
+
+  In the same way that sighted users can glance at a page and get a sense of its
+  contents, users of screen readers can do the same by navigating through
+  headings. Well written and properly ordered headings can save users,
+  especially those who use screen readers, a lot of time and frustration.","When at least one heading element (marked by <h1> through
+  <h6>) is present, it is a best practice to ensure it
+  contains content.","Blind, Deafblind, Mobility",Ensures headings have discernible text,Minor,"cat.name-role-value, best-practice","failure, needs review",ffd0e9
+hidden-content,Hidden content on the page cannot be analyzed,"Hidden content cannot be automatically analyzed for accessibility rule
+  violations.
+
+
+  Visually hidden content must be accessible by both sighted and screen reader
+  users. If there is a compelling reason to hide content from sighted users,
+  there is usually a compelling reason also to hide that content from blind
+  users. When the content is made available to sighted users, it makes sense to
+  make it available to blind users as well.
+
+
+  Content will be hidden from screen reader users (and all sighted users too)
+  when the CSS properties display: none or
+  visibility: hidden are used. Changing CSS properties to
+  display: block, display: inline, or using other
+  display values makes the items available to screen reader users.","Informs users about hidden content that cannot be analyzed for accessibility
+  violations.","Sighted Keyboard Users, Blind, Colorblindness",Informs users about hidden content.,Minor,"cat.structure, best-practice, experimental, review-item","failure, needs review",
+duplicate-id-active,ID attribute value must be unique,"The ID attribute uniquely identifies focusable elements on a page. It does not
+  make sense to duplicate an active ID.
+
+
+  Duplicate active ID values break the accessibility of focusable elements
+  including labels for forms, table header cells, etc., Screen readers and
+  client-side scripts will skip any duplication other than the first instance.
+  Validating HTML files help prevent and eliminate possible sources of
+  accessibility problems, when not breaking accessibility.
+
+
+  Those experienced with client-side scripting know that when you re-use an
+  active ID, typically the only one that gets acted upon by the scripting is the
+  first instance of the use of that active ID. Similarly, assistive technologies
+  may, when referencing an active ID, only reference the first one accurately.","The value assigned to active ID attributes on focusable elements must be
+  unique to prevent the second instance from being overlooked by assistive
+  technology. Put another way, active ID attributes may not be used more than
+  once on focusable elements in the same document; focusable active elements
+  require unique IDs for assistive technology to distinguish one element from
+  another.","Blind, Deafblind",Ensures every id attribute value of active elements is unique,Serious,"cat.parsing, wcag2a-obsolete, wcag411, deprecated",failure,3ea0c8
+duplicate-id,ID attribute values must be unique,"The ID attribute uniquely identifies elements on a page. It does not make
+  sense to duplicate an ID.
+
+
+  Duplicate ID's can break the accessibility of labels for forms, table header
+  cells, etc., by the second instance being skipped by screen readers, or by
+  client-side scripts. They are common markup validation errors that can
+  eliminate possible sources of accessibility problems, when not breaking
+  accessibility.
+
+
+  Those experienced with client-side scripting know that when you re-use an id,
+  typically the only one that gets acted upon by the scripting is the first
+  instance of the use of that ID. Similarly, assistive technologies may, when
+  referencing an id, only reference the first one accurately.","The value assigned to an ID attribute must be unique to prevent the second
+  instance from being overlooked by assistive technology. Put another way; ID
+  attributes may not be used more than once in the same document to
+  differentiate each element from another.","Blind, Deafblind",Ensures every id attribute value used in ARIA and in labels is unique,Critical,"cat.parsing, wcag2a, wcag412, EN-301-549, EN-9.4.1.2",needs review,3ea0c8
+duplicate-id-aria,IDs used in ARIA and labels must be unique,"Duplicate IDs are common validation errors that may break the accessibility of
+  labels, e.g., ARIA elements, form fields, table header cells.
+
+
+  Unique ID's differentiate each element from another and prevent invalid
+  markup, wherein only the first instance gets acted upon by client-side
+  scripting, or where assistive technologies typically only reference the first
+  one accurately.","The value assigned to an id attribute used in ARIA or in form
+  labels must be unique to prevent the second instance from being overlooked by
+  assistive technology. Put another way; ID values used in ARIA and in labels
+  may not be used more than once in the same document to differentiate each
+  element from another.","Blind, Deafblind",Ensures every id attribute value used in ARIA and in labels is unique,Critical,"cat.parsing, wcag2a, wcag412, EN-301-549, EN-9.4.1.2",needs review,3ea0c8
+input-image-alt,Image buttons must have alternate text,"An <input type=""image""> button must have
+  alternate text, otherwise screen reader users will not know the button's
+  purpose. Even if the image contains only text, it still requires alternate
+  text, since a screen reader cannot translate images of words into output.
+
+
+Text Alone Is Not A Label: Just typing text next to the form
+  element is not sufficient to create a true label. Assistive technologies like
+  screen readers require labels in code that can be determined programmatically.
+  Some screen readers are programmed to guess what the label should be, based on
+  the surrounding text, but this method is not fool-proof and can lead to
+  confusion if the screen reader guesses wrong.","Ensures <input type=""image""> elements have alternate text.","Blind, Deafblind, Mobility","Ensures <input type=""image""> elements have alternate text",Critical,"cat.text-alternatives, wcag2a, wcag111, wcag412, section508, section508.22.a, TTv5, TT7.a, EN-301-549, EN-9.1.1.1, EN-9.4.1.2, ACT","failure, needs review",59796f
+image-alt,Images must have alternate text,"Screen readers have no way of translating an image into words that gets read
+  to the user, even if the image only consists of text. As a result, it's
+  necessary for images to have short, descriptive alt text so
+  screen reader users clearly understand the image's contents and purpose.
+
+
+  If you can't see, all types of visual information, such as images, are
+  completely useless unless a digital text alternative is provided so that
+  screen readers can convert that text into either sound or braille. The same is
+  true in varying degrees for people with low vision or color-blindness.
+
+
+  When you do not provide an acceptable alternative that works for their
+  available sensory modalities, such as making an image accessible by providing
+  a digital text description, screen readers cannot convert it into speech or
+  braille to make it available by sound or touch.","All images must have alternate text to convey their purpose and meaning to
+  screen reader users.","Blind, Deafblind",Ensures <img> elements have alternate text or a role of none or presentation,Critical,"cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, TTv5, TT7.a, TT7.b, EN-301-549, EN-9.1.1.1, ACT","failure, needs review",23a2a8
+avoid-inline-spacing,Inline text spacing must be adjustable with custom stylesheets,"Many people with cognitive disabilities have trouble tracking lines of text
+  when a block of text is single spaced. Providing spacing between 1.5 to 2
+  allows them to start a new line more easily once they have finished the
+  previous one.","Ensure that text spacing set through style attributes can be adjusted with
+  custom stylesheets.","Attention Deficit, Blind, Low Vision, Deafblind, Mobility, Cognitive",Ensure that text spacing set through style attributes can be adjusted with custom stylesheets,Serious,"cat.structure, wcag21aa, wcag1412, EN-301-549, EN-9.1.4.12, ACT",failure,"24afc2, 9e45ec, 78fd32"
+input-button-name,Input buttons must have discernible text,"Screen reader users are not able to discern the purpose of an
+  input type=""button"" without an accessible name.
+
+
+  Screen reader users cannot understand the purpose of an image without a
+  discernable and accessible textual name. A title for an image may provide only
+  advisory information about the image itself. Unnamed actionable graphic images
+  such as buttons have no clear description of the destination, purpose,
+  function or action for the non-text content when it is intended to be used as
+  a control.","Ensures input buttons have discernible text.
+
+  The input-button-name rule separates functionality from the
+  button-name rule to ensure that input buttons have discernible
+  text; advise relevant to input button names was incorrect for button elements.","Blind, Deafblind",Ensures input buttons have discernible text,Critical,"cat.name-role-value, wcag2a, wcag412, section508, section508.22.a, TTv5, TT5.c, EN-301-549, EN-9.4.1.2, ACT","failure, needs review",97a4e1
+label-content-name-mismatch,Label and name from content mismatch,"This rule applies to any element that has:
+
+
+a semantic role that is a widget that supports name from content, and
+
+visible text content, and
+
+an aria-label or aria-labelledby attribute.
+
+
+
+Note: widget roles that supports name from content are:
+  button, checkbox, gridcell, link, menuitem, menuitemcheckbox, menuitemradio,
+  option, radio, searchbox, switch, tab, treeitem.
+
+Expectation
+
+  The complete visible text content of the target element either matches or is
+  contained within its accessible name.
+
+
+Note: Leading and trailing whitespace and difference in case
+  sensitivity should be ignored.
+
+
+  Speech input users can interact with a webpage by speaking the visible text
+  labels of menus, links, and buttons that appear on the screen. It is confusing
+  to speech input users when they say a visible text label they see, but the
+  speech command does not work because the component's accessible (programmatic)
+  name does not match the visible label. When a user interface component has a
+  visible text label — whether it be real text or an image of text —
+  that text must also be found in the component's accessible (programmatic)
+  name. When the visible label and accessible (programmatic) name for
+  interactive components are in sync, speech input users can effectively
+  interact with those components.","Interactive elements labeled through their content must have their visible
+  label as part of their accessible name","Blind, Low Vision, Deafblind, Mobility",Ensures that elements labelled through their content must have their visible text as part of their accessible name,Serious,"cat.semantics, wcag21a, wcag253, EN-301-549, EN-9.2.5.3, experimental",failure,2ee8b8
+landmark-unique,Landmarks must have a unique role or role/label/title (i.e. accessible name) combination,"landmark-unique is a new best practice rule ensures that
+  landmarks have a unique role or accessible name (i.e. role, label, title)
+  combination.","Landmarks must have a unique role or role/label/title (i.e. accessible name)
+combination.","Sighted Keyboard Users, Blind, Deafblind",Landmarks should have a unique role or role/label/title (i.e. accessible name) combination,Moderate,"cat.semantics, best-practice",failure,
+valid-lang,lang attribute must have a valid value,"When configuring a screen reader, users select a default language. If the
+  language of a webpage is not specified, the screen reader assumes it is the
+  default language set by the user. Language selection becomes an issue for
+  users who speak multiple languages and access the website in more than one
+  language. It is essential to specify a language and ensure that it is valid so
+  website text is pronounced correctly.
+
+
+  Screen readers use different sound libraries for each language, based on the
+  pronunciation and characteristics of that language. Screen readers can switch
+  between these language libraries easily, but only if the documents specify
+  which language(s) to read. If the language is not specified, the screen reader
+  reads the document in the user's default language, resulting in a confusing
+  experience!","The language specified in the HTML document must be one of the valid languages
+  to ensure text is pronounced correctly for screen reader users.","Blind, Deafblind, Cognitive",Ensures lang attributes have valid values,Serious,"cat.language, wcag2aa, wcag312, TTv5, TT11.b, EN-301-549, EN-9.3.1.2, ACT",failure,de46e4
+layout-table,Layout tables must not use data table elements,"If a table is being used only for layout, it doesn't make sense to add
+  elements that belong only to data tables. Aside from being unnecessary, such
+  elements can confuse users of screen readers, since the assistive technology
+  announces these elements in a particular way. If these elements are present,
+  users might expect a data table and be confused when this is not what the
+  cells contain.
+
+
+  With broad adoption of CSS for beautiful page layouts, it is no longer
+  necessary or desirable to use tables to structure a page. The use of real data
+  tables, with properly marked-up table headers, allow screen reader users to
+  navigate from cell to cell and hear the headers announced.","If a table is being used for layout purposes only, it must not use data table
+  elements such as a header, caption, and summary to prevent confusion by screen
+  reader users who would otherwise expect data to be contained within the cells.","Blind, Deafblind, Mobility",,,,,
+link-in-text-block,Links must be distinguished from surrounding text in a way that does not rely on color,"Some people with low vision experience low contrast, meaning that there aren't
+  very many bright or dark areas. Everything tends to appear about the same
+  brightness, which makes it hard to distinguish outlines, borders, edges, and
+  details. Text that is too close in luminance (brightness) to the background
+  can be hard to read.
+
+
+  There are nearly three times more individuals with low vision than those with
+  total blindness. One person in twelve has a color deficiency - about 8% of men
+  and 0.4% of women in the US. A person with low vision or color blindness is
+  unable to distinguish text against a background without sufficient contrast.
+
+
+  When a sufficient color contrast ratio of 3:1 is not present to distinguish
+  link text color from surrounding text color, users with low vision who
+  experience low contrast cannot detect visually that the text is intended to
+  function as a link.","Ensures users who cannot distinguish between colors can tell when text is a
+  link by verifying the link has either a distinct style that does not rely on
+  color or has a contrast difference of greater than 3:1 (which alerts you that
+  manual testing is required).","Low Vision, Colorblindness",Ensure links are distinguished from surrounding text in a way that does not rely on color,Serious,"cat.color, wcag2a, wcag141, TTv5, TT13.a, EN-301-549, EN-9.1.4.1","failure, needs review",
+link-name,Links must have discernible text,"Inaccessible link elements pose barriers to accessibility, as they are a
+      fundamental component of a website.
+    
+
+
+
+      Users who rely exclusively on a keyboard (and no mouse) to navigate a
+      webpage can only click on links that can receive programmatic focus. A
+      link that cannot receive programmatic focus is inaccessible to these
+      users.
+    
+
+
+
+      Like sighted users, screen reader users need to know where a link is
+      pointing. Inner link text provides this information, though it won't get
+      used if a screen reader can't access it.
+    
+
+
+
+      Keyboard users, including visually impaired screen reader users or people
+      who cannot use a mouse, can activate only the links and form elements that
+      can receive programmatic focus. Any events activated exclusively by other
+      types of focus, for example onmouseover events that depend on
+      the mouse hover focus, are inaccessible to keyboard users. Only links and
+      form elements receive keyboard focus by default. Modify elements that are
+      not links or form components to receive focus by adding
+      tabindex=""0"".","Link text and alternate text for images, when used as links, must be
+  discernible by a screen reader, must not have a duplicate label, and must be
+  focusable.","Blind, Deafblind, Mobility",Ensures links have discernible text,Serious,"cat.name-role-value, wcag2a, wcag244, wcag412, section508, section508.22.a, TTv5, TT6.a, EN-301-549, EN-9.2.4.4, EN-9.4.1.2, ACT","failure, needs review",c487ae
+landmark-main-is-top-level,Main landmark must not be contained in another landmark,"Navigating a web page is far simpler for screen reader users if the content
+  splits between some high-level sections. Content outside of these sections is
+  difficult to find, and its purpose may be unclear.
+
+
+  HTML has historically lacked some key semantic markers, such as the ability to
+  designate sections of the page as the header, navigation, main content, and
+  footer. Using both HTML5 elements and ARIA landmarks in the same element is
+  considered a best practice, but the future probably favors HTML regions as
+  browser support increases.
+
+
+  The HTML Living Standard states ""A hierarchically correct main element is one
+  whose ancestor elements are limited to <html>,
+  <body>, <div>,
+  <form without an accessible name, and autonomous custom
+  elements. Each main element must be a hierarchically correct main element.""
+  This may reflect a ""best practice"" based on W3C validation.","It is a best practice to ensure the main landmark is not contained within
+  another landmark. All content should be contained within distinct regions such
+  as the header (role=""banner""), content
+  (role=""main""), and footer (role=""contentinfo"").","Blind, Deafblind, Mobility",Ensures the main landmark is at top level,Moderate,"cat.semantics, best-practice",failure,
+nested-interactive,Nested interactive controls are not announced by screen readers,"Focusable elements with an interactive control ancestor (any element that
+  accepts user input such as button or anchor elements) are not announced by
+  screen readers and create an empty tab stop. That is, you could tab to the
+  element but the screen reader will not announce its name, role, or state.",Nested interactive controls are not announced by screen readers,"Blind, Mobility",Ensures interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies,Serious,"cat.keyboard, wcag2a, wcag412, TTv5, TT6.a, EN-301-549, EN-9.4.1.2","failure, needs review",307n5z
+page-has-heading-one,Page must contain a level-one heading,"Screen reader users can use keyboard shortcuts to navigate directly to the
+  first h1, which, in principle, should allow them to jump directly
+  to the main content of the web page. If there is no h1, or if the
+  h1 appears somewhere other than at the start of the main content,
+  screen reader users must listen to more of the web page to understand its
+  structure, wasting valuable time.
+
+
+  Keep in mind that blind users can't just look at a web page and immediately
+  understand its layout the way that a visual user can. Visual users can take in
+  much information about the page layout without having to read all of the
+  content. Blind users don't have that luxury. Screen readers read linearly,
+  which means listening to the entire web page unless there is some other
+  convenient way to get a ""glimpse"" of the page's layout and structure. It turns
+  out that headings are a way to do that. Screen reader users can use keyboard
+  shortcuts to navigate through the heading structure of a document.","Ensures that the page, or at least one of its frames, contains an
+  h1 element that appears before the start of the main content to
+  allow screen reader users to use keyboard shortcuts to navigate the heading
+  structure instead of wasting time listening to more of the web page to
+  understand its structure.","Sighted Keyboard Users, Blind, Low Vision, Deafblind","Ensure that the page, or at least one of its frames contains a level-one heading",Moderate,"cat.semantics, best-practice",failure,
+bypass,Page must have means to bypass repeated blocks,"Since web sites often display secondary, repeated content on multiple pages
+  (such as navigation links, heading graphics, and advertising frames),
+  keyboard-only users benefit from faster, more direct access to the primary
+  content on a page. This reduces keystrokes and minimizes associated physical
+  pain.
+
+
+  For users who cannot use a mouse, navigating with a keyboard is more difficult
+  and time-consuming when the interface does not include methods to make
+  keyboard navigation easier. For example, to activate a link in the middle of a
+  web page, a keyboard user may have to tab through a large number of links and
+  buttons in the header and main navigation of the page.
+
+
+  At the extreme end, users with severe motor limitations might require several
+  minutes to tab through all of those elements, and can lead to fatigue and
+  possible physical pain for some users. Even users with less severe constraints
+  will require longer than mouse users, who can click on the desired link in a
+  second or two.","Each page must have a main landmark to provide a mechanism to
+  bypass repeated blocks of content or interface elements (like header and
+  navigation) and quickly arrive at the main content.","Blind, Deafblind",Ensures each page has at least one mechanism for a user to bypass navigation and jump straight to the content,Serious,"cat.keyboard, wcag2a, wcag241, section508, section508.22.o, TTv5, TT9.a, EN-301-549, EN-9.2.4.1",needs review,"cf77f2, 047fe0, b40fd1, 3e12e1, ye5d6e"
+landmark-one-main,Page must have one main landmark,"Navigating a web page is far simpler for screen reader users if all of the
+  content splits between one or more high-level sections. Content outside of
+  these sections is difficult to find, and its purpose may be unclear.
+
+
+  HTML has historically lacked some key semantic markers, such as the ability to
+  designate sections of the page as the header, navigation, main content, and
+  footer. Using both HTML5 elements and ARIA landmarks in the same element is
+  considered a best practice, but the future will favor HTML regions as browser
+  support increases.","It is a best practice to ensure that there is only one main landmark to
+  navigate to the primary content of the page and that if the page contains
+  iframe elements, each should either contain no landmarks, or just
+  a single landmark.","Blind, Deafblind, Mobility",Ensures the document has a main landmark,Moderate,"cat.semantics, best-practice",failure,
+landmark-no-duplicate-banner,Page must not have more than one banner landmark,"Landmarks allow blind users to navigate and find content quickly. Missing
+  landmarks require screen reader users to sort through too much extra
+  information to find anything.
+
+
+  JAWS, NVDA, and VoiceOver support the ability to navigate to sections of a web
+  page using ARIA landmarks. Landmarks provide a more elegant solution to the
+  problem of providing a way for users to skip to the main content of the web
+  page. There is no visible alteration to the web design, making it unobtrusive
+  and invisible. Of course, the fact that this technique is invisible is fine
+  for blind screen reader users, but not so fine for sighted keyboard users or
+  screen enlarger users with low vision. In this sense, HTML 5 regions and ARIA
+  landmarks cannot yet replace the old-fashioned ""skip navigation"" links.
+  Browsers still do not have a built-in way to notify users that HTML 5 regions
+  or ARIA landmarks are present. Screen reader users are the only ones who can
+  take advantage of them. There is a
+  Firefox ARIA landmark extension
+    
+  available, which adds the ability to navigate by landmarks in Firefox, but
+  this is not a native feature of the browser.",Ensures the page has at most one banner landmark.,"Sighted Keyboard Users, Blind, Deafblind",Ensures the document has at most one banner landmark,Moderate,"cat.semantics, best-practice",failure,
+landmark-no-duplicate-contentinfo,Page must not have more than one contentinfo landmark,"One of the main purposes of landmarks is to allow blind users to quickly find
+  and navigate to the appropriate landmark, so you should keep the total number
+  of landmarks relatively low. If you don't, screen reader users will have to
+  sort through too much extra information to find what they're looking for.
+
+
+  Despite all of the talk about using correct semantic structure for
+  accessibility, HTML has historically lacked some key semantic markers, such as
+  the ability to designate sections of the page as the header, navigation, main
+  content, and footer. With HTML5, these designations are possible, using the
+  new elements header, nav, main, and
+  footer. Similar functionality is available using the ARIA
+  (Accessible Rich Internet Application) attributes role=""banner"",
+  role=""navigation"", role=""main"" and
+  role=""contentinfo"".
+
+
+  JAWS, NVDA, and VoiceOver support the ability to navigate to sections of a web
+  page using ARIA landmarks. Landmarks provide a more elegant solution to the
+  problem of providing a way for users to skip to the main content of the web
+  page. There is no visible alteration to the web design, making it unobtrusive
+  and invisible. Of course, the fact that this technique is invisible is fine
+  for blind screen reader users, but not so fine for sighted keyboard users or
+  screen enlarger users with low vision. In this sense, HTML 5 regions and ARIA
+  landmarks cannot yet replace the old-fashioned ""skip navigation"" links.
+  Browsers still do not have a built-in way to notify users that HTML 5 regions
+  or ARIA landmarks are present. Screen reader users are the only ones who can
+  take advantage of them. There is a
+  Firefox ARIA landmark extension
+    
+  available, which adds the ability to navigate by landmarks in Firefox, but
+  this is not a native feature of the browser.",Ensures the page has at most one contentinfo landmark.,"Sighted Keyboard Users, Blind, Deafblind",Ensures the document has at most one contentinfo landmark,Moderate,"cat.semantics, best-practice",failure,
+radiogroup,Radio inputs with the same name attribute value must be part of a group,"It is often easy for sighted users to understand the purpose of a group of
+  radio buttons based on context. Screen reader users require announcements and
+  explanations of the currently focused content. Grouping buttons together
+  programmatically under a descriptive name eliminates the ambiguity screen
+  reader users experience to create a more accessible product.
+
+
+  When screen reader users arrive at a set of radio buttons, that are related -
+  that is when they all submit values for a single named field - the individual
+  label associated with each radio control may not adequately convey the group's
+  descriptive context.",Radio buttons that relate to each other must share a common label.,"Blind, Deafblind, Mobility",,,,,
+aria-required-attr,Required ARIA attributes must be provided,"ARIA widget roles require additional attributes that describe the state of the
+  widget. The state of the widget is not communicated to screen reader users if
+  a required attribute is omitted.
+
+
+  Certain roles act as composite user interface widgets. As such, they typically
+  act as containers that manage other, contained widgets. When an object
+  inherits from multiple ancestors and one ancestor indicates support for one
+  property while another ancestor indicates that the same property is required,
+  the property becomes required on the inheriting object. In some cases, default
+  values are sufficient to meet ARIA attribute requirements.
+
+
+  When required state and property attributes for specific roles (and subclass
+  roles) are not present, screen readers may not be able to convey the
+  definition of what the element's role is to the users.","ARIA widget roles must have appropriate attributes describing the state or
+  properties of the widget.","Blind, Deafblind, Mobility",Ensures elements with ARIA roles have all required ARIA attributes,Critical,"cat.aria, wcag2a, wcag412, EN-301-549, EN-9.4.1.2",failure,4e8ab6
+scope-attr-valid,Scope attribute should be used correctly on tables,"The scope attribute makes table navigation much easier for screen
+  reader users, provided that it is used correctly. Incorrectly used,
+  scope can make table navigation much harder and less efficient.
+
+
+  A screen reader operates under the assumption that a table has a header and
+  that this header specifies a scope. Because of the way screen readers
+  function, having an accurate header makes viewing a table far more accessible
+  and more efficient for people who use the device.","The scope attribute must be used correctly on tables in
+  accordance with either HTML4 or HTML5 specifications to enable efficient table
+  navigation for screen reader users.","Blind, Deafblind, Mobility",Ensures the scope attribute is used correctly on tables,Moderate,"cat.tables, best-practice",failure,
+select-name,select element must have an accessible name,"Effective form labels are required to make forms accessible. The purpose of
+  form elements such as checkboxes, radio buttons, input fields, etcetera, is
+  often apparent to sighted users, even if the form element is not
+  programmatically labeled. Screen readers users require useful form labels to
+  identify form fields. Adding a label to all form elements eliminates ambiguity
+  and contributes to a more accessible product.
+
+
+  When labels for form elements are absent, screen reader users do not know the
+  input data expectations. Screen readers cannot programmatically determine
+  information about input objects without an established label relationship (or
+  redundant text serving as a label).",Each select element must have a programmatically associated label element.,"Blind, Low Vision, Mobility",Ensures select element has an accessible name,Critical,"cat.forms, wcag2a, wcag412, section508, section508.22.n, TTv5, TT5.c, EN-301-549, EN-9.4.1.2, ACT","failure, needs review",e086e5
+server-side-image-map,Server-side image maps must not be used,"Server-side image maps are not keyboard accessible; mouse clicks are required
+  to access the links contained in the image, making the image inaccessible to
+  people who only use keyboards for their navigation.
+
+
+  Server side image maps pass the coordinates of the mouse click to the
+  server-side script used to process the image map. Because they rely on mouse
+  clicks, they are not keyboard accessible, whereas client-side image maps are
+  keyboard accessible. Further, it is not possible to provide text alternatives
+  to the actionable areas of a server-side image map like you can with the
+  areas of a client-side image map.",The document contains an image map that is server-side instead of client-side.,"Blind, Deafblind, Mobility",Ensures that server-side image maps are not used,Minor,"cat.text-alternatives, wcag2a, wcag211, section508, section508.22.f, TTv5, TT4.a, EN-301-549, EN-9.2.1.1",needs review,
+svg-img-alt,SVG images and graphics require accessible text,"The intent of
+  Success Criterion 1.1.1
+  is to make information conveyed by non-text content (including SVG images)
+  accessible through the use of a text alternative. Text alternatives are a
+  primary way for making information accessible because they can be rendered
+  through any sensory modality (for example, visual, auditory or tactile) to
+  match the needs of the user. Providing text alternatives allows the
+  information to be rendered in a variety of ways by a variety of user agents.
+  For example, a person who cannot see a picture can have the text alternative
+  read aloud using synthesized speech. A person who cannot hear an audio file
+  can have the text alternative displayed so that he or she can read it. In the
+  future, text alternatives will also allow information to be more easily
+  translated into sign language or into a simpler form of the same language.","Ensures SVG elements with an <img>, graphics-document or
+  graphics-symbol role have an accessible text alternative.","Blind, Deafblind, Mobility","Ensures <svg> elements with an img, graphics-document or graphics-symbol role have an accessible text",Serious,"cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a, TTv5, TT7.a, EN-301-549, EN-9.1.1.1, ACT","failure, needs review",7d6734
+color-contrast,Text elements must have sufficient color contrast against the background,"Some people with low vision experience low contrast, meaning that there aren't
+  very many bright or dark areas. Everything tends to appear about the same
+  brightness, which makes it hard to distinguish outlines, borders, edges, and
+  details. Text that is too close in luminance (brightness) to the background
+  can be hard to read.
+
+
+  There are nearly three times more individuals with low vision than those with
+  total blindness. One in twelve people cannot see the average full spectrum of
+  colors - about 8% of men and 0.4% of women in the US. A person with low vision
+  or color blindness is unable to distinguish text against a background without
+  sufficient contrast.
+
+Color transparency and opacity is taken into account in the background.
+
+  Color transparency and opacity in the foreground is more difficult to detect
+  and account for due to:
+
+
+1:1 colors in foreground and background.
+CSS background gradients.
+Background colors in CSS pseudo-elements.
+Background colors created with CSS borders.
+
+    Overlap by another element in the foreground - this sometimes comes up with
+    tricky positioning.
+  
+Elements moved outside the viewport via CSS.","All text elements must have sufficient contrast between text in the foreground
+  and background colors behind it in accordance with WCAG 2 AA contrast ratio
+  thresholds.","Low Vision, Colorblindness",Ensures the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds,Serious,"cat.color, wcag2aa, wcag143, TTv5, TT13.c, EN-301-549, EN-9.1.4.3, ACT","failure, needs review","afw4f7, 09o5cg"
+image-redundant-alt,Text of buttons and links should not be repeated in the image alternative,"It is unnecessary and potentially confusing to have alternative text for a
+  link or image to be repeated in text adjacent to the link or image since it
+  would be read twice by a screen reader.
+
+
+  Since image buttons use alt attributes for labels, the labels must not
+  duplicate the text next to the button. Duplicated alternative text for an
+  image or link in the text adjacent to that image or link results in screen
+  readers announcing the text to the user twice.","When button and link text repeats in a alt attribute value,
+  screen reader users hear the same information twice, which renders the alt
+  text meaningless and confusing.","Blind, Deafblind",Ensure image alternative is not repeated as text,Minor,"cat.text-alternatives, best-practice",failure,
+table-duplicate-name,The <caption> element should not contain the same text as the summary attribute,"Screen readers have a specific way of announcing tables. When tables are not
+  properly marked up, this creates the opportunity for confusing or inaccurate
+  screen reader output.
+
+
+  When tables have summary and caption text that is identical, screen reader
+  users can be confused and find it difficult to know the name and purpose of
+  the table.","Data table markup can be tedious and confusing. Make sure the caption and
+  summary table attributes are not identical. Screen readers have some features
+  to manage table navigation, but tables must be marked up accurately for these
+  features to work correctly.","Blind, Deafblind",Ensure the <caption> element does not contain the same text as the summary attribute,Minor,"cat.tables, best-practice","failure, needs review",
+skip-link,The skip-link target should exist and be focusable,"Screen readers announce content sequentially as it appears in the HTML file.
+  What this means for users of assistive technology is that the content at the
+  top of the page, typically including the entire navigation, is read out to the
+  user before reaching any of the main content. Since content at the top of the
+  page can often be very lengthy, it can be time-consuming to listen to or tab
+  through all of it when the user is only interested in the main content.
+  Including a skip link in an HTML page is beneficial to blind users, users with
+  low vision, and mouse-only users.","The page must have a link at the top before the navigation that allows users
+  to skip lengthy navigation and proceed to a page's main content to save time.","Blind, Deafblind, Mobility",Ensure all skip links have a focusable target,Moderate,"cat.keyboard, best-practice","failure, needs review",
+meta-refresh,Timed refresh must not exist,"Since users do not expect a page to refresh automatically, such refreshing can
+  be disorienting. Refreshing also moves the programmatic focus back to the top
+  of the page, away from where the user had it. Such resetting is frustrating
+  for users.
+
+
+  Redirection and page refresh through the use of the
+  <meta> element is problematic for users with disabilities
+  in many ways. The primary reason why redirects and refreshes are problematic
+  is that the user has no control over when the redirect or refresh occurs. If
+  the purpose of the <meta> element is to redirect the user
+  to a new location, server-side means should be employed instead of
+  client-side. Content that moves or auto-updates can be a barrier to anyone who
+  has trouble reading the stationary text as quickly as well as to anyone who
+  has trouble tracking moving objects. It can also cause problems for screen
+  readers.","The document must not use
+  <meta http-equiv=""refresh""> because it can prevent control
+  over when the refresh occurs for users with disabilities.","Blind, Deafblind, Mobility","Ensures <meta http-equiv=""refresh""> is not used for delayed refresh",Critical,"cat.time-and-media, wcag2a, wcag221, TTv5, TT8.a, EN-301-549, EN-9.2.2.1",failure,"bc659a, bisz58"
+aria-dpub-role-fallback,Unsupported DPUB ARIA roles should be used on elements with implicit fallback roles,"When a Digital Publishing Role that is not supported is conveyed via a role
+  attribute value, semantic information can only be conveyed to screen reader
+  users via native HTML elements that have similar semantics for fallback.
+
+
+  Proposed or recommended specifications such as WAI-ARIA DPUB roles are subject
+  to becoming obsolete or remaining preliminary prototypes when not supported.
+
+
+  When there is no fallback role specified, assistive technologies such as
+  screen readers may not be able to convey missing semantic and interaction
+  information intended by the author to users.","When a Digital Publishing Role that is not supported is conveyed via a role
+  attribute value, semantic information can only be conveyed to screen reader
+  users via native HTML elements that have similar semantics for fallback.","Blind, Low Vision, Deafblind",,,,,
+aria-roledescription,Use aria-roledescription on elements with a semantic role,"Inappropriate aria-roledescription attribute values that conflict
+  with an element's implied or explicit role value can interfere
+  with the accessibility of the web page. A conflicting
+  aria-roledescription attribute value may result in no effect on
+  the accessibility of the application and may trigger behavior that disables
+  accessibility for entire portions of an application.
+
+
+  When aria-roledescription> attributes are applied to HTML
+  elements not in accordance with WAI-ARIA 1.1, semantics conflict between the
+  aria-roledescription value and the implicit or explicit element
+  role value which may result in assistive technology products
+  reporting nonsensical user interface (UI) information that does not correctly
+  represent the intended UI experience.","Ensures that the aria-roledescription attribute is only used on
+  elements with an implicit or explicit role values.","Blind, Deafblind, Mobility",Ensure aria-roledescription is only used on elements with an implicit or explicit role,Serious,"cat.aria, wcag2a, wcag412, EN-301-549, EN-9.4.1.2, deprecated","failure, needs review",
+meta-viewport-large,Users should be able to zoom and scale the text up to 500%,"The user-scalable=""no"" parameter inside the
+  content attribute of
+  <meta name=""viewport""> element disables zooming on a page.
+  The maximum-scale parameter limits the amount the user can zoom.
+  This is problematic for people with low vision who rely on screen magnifiers
+  to properly see the contents of a web page.
+
+
+  Users with partial vision and low vision often choose to enlarge the fonts on
+  their browser to make text on the web easier to read. The browser's viewport
+  focus is everything visible in the browser window at a given moment. If the
+  user maximizes the browser to full size on a high-resolution monitor, the
+  viewport focus area is large and may include the entire web page.
+
+
+  If the browser window is small, the viewport focus area includes only a small
+  part of the web page. The browser's viewport focus does not affect the
+  programmatic focus. Users can scroll up and down the web page, but the
+  programmatic focus does not follow the viewport. The Web Content Accessibility
+  Guidelines calls for developers to design pages so that they support resize up
+  to 200%; however, it is a best practice to require 5x zoom.","The document must not use the user-scalable=""no"" parameter in the
+  <meta name=""viewport""> element because it disables text
+  scaling and zooming which is essential to users with low vision.",Low Vision,"Ensures <meta name=""viewport""> can scale a significant amount",Minor,"cat.sensory-and-visual-cues, best-practice",failure,
+meta-viewport,Zooming and scaling must not be disabled,"The user-scalable=""no"" parameter inside the
+  content attribute of
+  <meta name=""viewport""> element disables zooming on a page.
+  The maximum-scale parameter limits the amount the user can zoom.
+  This is problematic for people with low vision who rely on screen magnifiers
+  to properly see the contents of a web page.
+
+
+  Users with partial vision and low vision often choose to enlarge the fonts on
+  their browser to make text on the web easier to read. The browser's viewport
+  focus is everything visible in the browser window at a given moment.
+  Maximizing the browser to full size on a high-resolution monitor creates a
+  large the viewport focus area and may include the entire web page.
+
+
+  If the browser window is small, the viewport focus area only includes a small
+  part of the web page. The browser's viewport focus does not affect the
+  programmatic focus. Users can scroll up and down the web page, but the
+  programmatic focus does not follow the viewport. The Web Content Accessibility
+  Guidelines calls for developers to design pages so that they support resize up
+  to 200%.
+
+
+  Ensures that the user-scalable=""no"" parameter is not present in
+  the <meta name=""viewport""> element and the
+  maximum-scale parameter is not less than 2.","The document must not use the user-scalable=""no"" parameter in the
+  <meta name=""viewport""> element because it disables text
+  scaling and zooming which is essential to users with low vision.",Low Vision,"Ensures <meta name=""viewport""> does not disable text scaling and zooming",Critical,"cat.sensory-and-visual-cues, wcag2aa, wcag144, EN-301-549, EN-9.1.4.4, ACT",failure,b4f0c3

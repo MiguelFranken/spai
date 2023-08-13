@@ -1,0 +1,74 @@
+{
+  "report": [
+    {
+      "id": "aria-allowed-role",
+      "description": "Ensures role attribute has an appropriate value for the element",
+      "help": "ARIA role should be appropriate for the element",
+      "impact": "minor"
+    },
+    {
+      "id": "button-name",
+      "description": "Ensures buttons have discernible text",
+      "help": "Buttons must have discernible text",
+      "impact": "critical"
+    },
+    {
+      "id": "empty-heading",
+      "description": "Ensures headings have discernible text",
+      "help": "Headings should not be empty",
+      "impact": "minor"
+    },
+    {
+      "id": "frame-title",
+      "description": "Ensures <iframe> and <frame> elements have an accessible name",
+      "help": "Frames must have an accessible name",
+      "impact": "serious"
+    },
+    {
+      "id": "heading-order",
+      "description": "Ensures the order of headings is semantically correct",
+      "help": "Heading levels should only increase by one",
+      "impact": "moderate"
+    },
+    {
+      "id": "image-alt",
+      "description": "Ensures <img> elements have alternate text or a role of none or presentation",
+      "help": "Images must have alternate text",
+      "impact": "critical"
+    },
+    {
+      "id": "landmark-unique",
+      "description": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+      "help": "Ensures landmarks are unique",
+      "impact": "moderate"
+    },
+    {
+      "id": "link-name",
+      "description": "Ensures links have discernible text",
+      "help": "Links must have discernible text",
+      "impact": "serious"
+    },
+    {
+      "id": "nested-interactive",
+      "description": "Ensures interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+      "help": "Interactive controls must not be nested",
+      "impact": "serious"
+    },
+    {
+      "id": "region",
+      "description": "Ensures all page content is contained by landmarks",
+      "help": "All page content should be contained by landmarks",
+      "impact": "moderate"
+    },
+    {
+      "id": "scrollable-region-focusable",
+      "description": "Ensure elements that have scrollable content are accessible by keyboard",
+      "help": "Scrollable region must have keyboard access",
+      "impact": "serious"
+    }
+  ],
+  "context": {
+    "description": "Live news, investigations, opinion, photos and video by the journalists of The New York Times from more than 150 countries around the world. Subscribe for coverage of U.S. and international news, politics, business, technology, science, health, arts, sports and more.",
+    "title": "The New York Times - Breaking News, US News, World News and Videos"
+  }
+}
