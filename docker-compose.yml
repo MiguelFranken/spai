@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  traefik:
+    image: traefik:v2.5
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"     # The HTTP port
+      - "8080:8080" # The Web UI (enabled by --api.insecure=true)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  smart-personas-review-generator:
+    image: smart-personas-review-generator
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.smart-personas-review-generator.rule=Host(`python-app.local`)"
+      - "traefik.http.routers.smart-personas-review-generator.entrypoints=web"
+      - "traefik.http.services.smart-personas-review-generator.loadbalancer.server.port=1234"
+    expose:
+      - "1234"
