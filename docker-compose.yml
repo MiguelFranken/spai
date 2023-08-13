@@ -1,10 +1,10 @@
 version: '3'
 
 x-networks:
-  &network_name motelone_network
+  &network_name smart-personas_network
 
 networks:
-  motelone_network:
+  smart-personas_network:
     name: *network_name
 
 services:
@@ -22,7 +22,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
       - "traefik.enable=true"
-      - "traefik.docker.network=motelone_network"
+      - "traefik.docker.network=smart-personas_network"
     networks:
       - *network_name
 
@@ -46,6 +46,17 @@ services:
       - "traefik.http.routers.smart-personas-review-generator.rule=Host(`review-generator.local`)"
       - "traefik.http.routers.smart-personas-review-generator.entrypoints=web"
       - "traefik.http.services.smart-personas-review-generator.loadbalancer.server.port=1234"
-      - "traefik.docker.network=motelone_network"
+      - "traefik.docker.network=smart-personas_network"
+    networks:
+      - *network_name
+
+  smart-personas-accessibility-reporter:
+    image: smart-personas-accessibility-reporter
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nestjs-app.rule=Host(`accessibility-reporter.local`)"
+      - "traefik.http.services.smart-personas-review-generator.loadbalancer.server.port=3000"
+      - "traefik.http.routers.nestjs-app.entrypoints=web"
+      - "traefik.docker.network=smart-personas_network"
     networks:
       - *network_name
