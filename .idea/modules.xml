@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/docker.iml" filepath="$PROJECT_DIR$/docker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/services/smart-personas-accessibility-reporter/smart-personas-accessibility-reporter.iml" filepath="$PROJECT_DIR$/services/smart-personas-accessibility-reporter/smart-personas-accessibility-reporter.iml" />
       <module fileurl="file://$PROJECT_DIR$/services/smart-personas-review-generator/smart-personas-review-generator.iml" filepath="$PROJECT_DIR$/services/smart-personas-review-generator/smart-personas-review-generator.iml" />
     </modules>
   </component>
