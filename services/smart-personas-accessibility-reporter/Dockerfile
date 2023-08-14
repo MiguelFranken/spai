@@ -22,8 +22,8 @@ COPY . .
 # Build the NestJS application for production
 RUN pnpm run build
 
-# Start with a clean image to ensure a smaller size
-FROM node:16-slim
+# Use Playwright's official Docker base image
+FROM mcr.microsoft.com/playwright:v1.37.0-jammy
 
 WORKDIR /usr/src/app
 

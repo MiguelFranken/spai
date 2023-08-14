@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import puppeteer from 'puppeteer';
-import { loadPage } from '@axe-core/puppeteer';
-import type { AxeResults } from 'axe-core';
+import {injectAxe, getAxeResults} from "axe-playwright";
+
+const { chromium, webkit } = require('playwright');
 
 interface FilteredResult {
     help: string
@@ -14,19 +14,25 @@ export type AccessibilityReport = { report: FilteredResult[], context: any }
 
 @Injectable()
 export class A11yReportService {
-    // Your previous functions and logic goes here. Refactor the report() function to something like:
     async generateReport(): Promise<AccessibilityReport> {
-        const url = 'https://www.zalando.de/lauren-ralph-lauren-judy-t-shirt-basic-black-l4221d09m-q11.html'
+        const url = 'https://denkwerk.com'
 
-        const browser = await puppeteer.launch({
-            headless: 'new',
-        })
+        let browser;
 
-        // Create a page
-        const page = await browser.newPage()
+        try {
+            browser = await chromium.launch({
+                args: ['--no-sandbox']
+            });
+        } catch(e) {
+            browser = await webkit.launch();
+        }
 
-        // Go to your site
-        await page.goto(url)
+        const contextBrowser = await browser.newContext();
+        const page = await contextBrowser.newPage();
+
+        await page.goto(url);
+
+        await injectAxe(page)
 
         const list = await page.evaluate(() =>
             Array.from(
@@ -39,15 +45,9 @@ export class A11yReportService {
         const context = Object.fromEntries(list)
         context.title = title
         context.url = url
-        console.log('context', context)
 
-        const axeBuilder = await loadPage(
-            browser,
-            url,
-        )
-        const results: AxeResults = await axeBuilder.analyze()
 
-        // console.log('violations', results.violations)
+        const results = await getAxeResults(page)
 
         const violations = results.violations
         const filteredResults: FilteredResult[] = violations.map(violation => ({
@@ -56,8 +56,6 @@ export class A11yReportService {
             help: violation.help,
             impact: violation.impact,
         }))
-
-        console.log('results', filteredResults)
 
         await browser.close()
 

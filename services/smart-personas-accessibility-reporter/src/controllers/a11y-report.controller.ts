@@ -7,6 +7,6 @@ export class A11yReportController {
 
     @Get()
     async getReport() {
-        return await this.a11yReportService.generateReport();
+        return await this.a11yReportService.generateReport()
     }
 }
