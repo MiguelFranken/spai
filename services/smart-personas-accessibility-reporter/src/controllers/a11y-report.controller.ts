@@ -1,5 +1,5 @@
 import { BadRequestException, Controller, Get, Query } from '@nestjs/common'
-import type { A11yReportService } from '../services/a11y-report.service'
+import { A11yReportService } from '../services/a11y-report.service'
 
 function isValidUrl(input: string): boolean {
   try {
