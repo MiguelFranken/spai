@@ -11,6 +11,7 @@ REPORTS_DIR = '../reports'
 PERSONA_NAME = os.environ.get('PERSONA_NAME', 'Claudia')
 PARAGRAPH_LIMIT = int(os.getenv('PARAGRAPH_LIMIT', default=3))
 MAX_REPORTS_TO_PROCESS = int(os.getenv("MAX_REPORTS_TO_PROCESS", 10))
+ACCESSIBILITY_REPORTER_API = os.environ.get('ACCESSIBILITY_REPORTER_API')
 
 
 if not OPENAI_API_KEY:

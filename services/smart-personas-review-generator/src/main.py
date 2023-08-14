@@ -1,31 +1,49 @@
-# app.py
-from flask import Flask, request, jsonify
-
-from config import PERSONA_NAME, PARAGRAPH_LIMIT
+from flask import Flask, request, jsonify, make_response
+from config import PERSONA_NAME, PARAGRAPH_LIMIT, ACCESSIBILITY_REPORTER_API
 from data import report_loader
 from data.personal_info_factory import PersonalInfoFactory
 from review_generator import ReviewGenerator
+import requests
+
 
 app = Flask(__name__)
 
 
-@app.route('/', methods=['GET'])
-def test_connection():
-    return jsonify({"review": "TEST"})
+# Custom Exception Classes
+class MissingURLParameter(Exception):
+    status_code = 400
 
 
-@app.route('/review', methods=['POST'])
+class CustomServerError(Exception):
+    status_code = 500
+
+
+@app.errorhandler(MissingURLParameter)
+def handle_missing_url_parameter(error):
+    return make_response(jsonify({"error": "Missing URL query parameter"}), MissingURLParameter.status_code)
+
+
+@app.errorhandler(CustomServerError)
+def handle_custom_server_error(error):
+    return make_response(jsonify({"error": str(error)}), CustomServerError.status_code)
+
+
+@app.route('/review', methods=['GET'])
 def generate_review():
     try:
-        # Get the JSON data from the request body
-        data = request.get_json()
+        # Extract 'url' query parameter from the incoming request
+        url = request.args.get('url')
+        if not url:
+            raise MissingURLParameter()
 
-        # Check for the existence of the 'report' field in the JSON data
-        if not data or 'report' not in data:
-            return jsonify({"error": "Invalid or missing report data"}), 400
+        # Fetch report data from accessibility-report.local
+        response = requests.get(ACCESSIBILITY_REPORTER_API + "/a11y-report", params={"url": url})
+
+        # This will raise an HTTPError if the HTTP request returned an unsuccessful status code
+        response.raise_for_status()
 
         # Extract the 'report' field from the JSON data
-        report_file = data['report']
+        report_file = response.json()
 
         # Initialize your review generator
         generator = ReviewGenerator()
@@ -41,9 +59,11 @@ def generate_review():
         # Return the response text in a JSON response
         return jsonify({"review": response_text})
 
+    except requests.RequestException as e:  # Handling requests exceptions
+        raise CustomServerError("Failed to fetch data from the accessibility reporter")
+
     except Exception as e:
-        # Handle unexpected errors and return them in a JSON response
-        return jsonify({"error": str(e)}), 500
+        raise CustomServerError(str(e))
 
 
 if __name__ == '__main__':

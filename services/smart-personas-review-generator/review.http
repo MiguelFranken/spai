@@ -1,22 +1,18 @@
+GET http://localhost:3000/a11y-report?url=http://example.com
+Content-Type: application/json
+
+###
+
+GET http://accessibility-reporter.local:80/a11y-report
+Content-Type: application/json
+
+###
+GET http://127.0.0.1:1234/review?url=http://example.com
+Content-Type: application/json
+
+###
 POST http://review-generator.local:80/review
 Content-Type: application/json
 
-{
-  "report": {
-    "report": [
-      {
-        "id": "aria-allowed-attr",
-        "description": "Ensures ARIA attributes are allowed for an element's role",
-        "help": "Elements must only use allowed ARIA attributes",
-        "impact": "critical"
-      }
-    ],
-    "context": {
-      "description": " Lauren Ralph Lauren ELBOW SLEEVE - T-Shirt basic - black/schwarz für 54,95 € (10.08.2023) Gratisversand für Bestellungen im Wert von über 29,90 €",
-      "twitter:title": "Lauren Ralph Lauren ELBOW SLEEVE - T-Shirt basic - black/schwarz - Zalando.de",
-      "twitter:description": " Lauren Ralph Lauren ELBOW SLEEVE - T-Shirt basic - black/schwarz für 54,95 € (10.08.2023) Gratisversand für Bestellungen im Wert von über 29,90 €",
-      "title": "Lauren Ralph Lauren ELBOW SLEEVE - T-Shirt basic - black/schwarz - Zalando.de",
-      "url": "https://www.zalando.de/lauren-ralph-lauren-judy-t-shirt-basic-black-l4221d09m-q11.html"
-    }
-  }
-}
+{}
+
