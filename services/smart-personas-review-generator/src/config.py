@@ -2,7 +2,13 @@ import os
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
-load_dotenv()
+env_path = os.environ.get('ENV_PATH')
+
+if env_path:
+    load_dotenv(dotenv_path="../" + env_path)
+else:
+    load_dotenv()
+
 
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 HUGGINGFACEHUB_API_TOKEN = os.environ.get('HUGGINGFACEHUB_API_TOKEN')
