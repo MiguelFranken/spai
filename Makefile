@@ -2,12 +2,7 @@
 
 # Iterate over subdirectories in the services directory and build each Docker image
 build-all:
-	@for dir in services/*; do \
-		if [ -d "$$dir" ]; then \
-			echo "Building Docker image for microservice in $$dir..."; \
-			docker build --platform linux/amd64 -t $$(basename $$dir) -f $$dir/Dockerfile $$dir; \
-		fi \
-	done
+	@docker-compose build
 
 run:
 	@echo "Starting all services with Docker Compose..."

@@ -41,6 +41,9 @@ services:
 
   smart-personas-review-generator:
     image: smart-personas-review-generator
+    build:
+      context: ./services/smart-personas-review-generator
+      dockerfile: Dockerfile
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.smart-personas-review-generator.rule=Host(`review-generator.local`)"
@@ -52,6 +55,9 @@ services:
 
   smart-personas-accessibility-reporter:
     image: smart-personas-accessibility-reporter
+    build:
+      context: ./services/smart-personas-accessibility-reporter
+      dockerfile: Dockerfile
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.nestjs-app.rule=Host(`accessibility-reporter.local`)"
