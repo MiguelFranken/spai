@@ -48,5 +48,5 @@ class ReviewGenerator:
 
         output = self.review_chain(inputs)
 
-        return output["clean_review_limit"]
+        return output["clean_review"]
 

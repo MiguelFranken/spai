@@ -1,7 +1,6 @@
 from langchain import LLMChain
 from langchain.chains import SequentialChain, TransformChain
 
-from chains.paragraph_limit_chain import create_paragraph_limit_chain
 from chains.persona_chain import create_transform_persona_chain
 from chains.website_a11y_report_chain import create_website_a11y_report_chain
 from chains.website_description_chain import create_website_description_chain
@@ -20,7 +19,6 @@ def create_review_chain():
     transform_persona_chain = create_transform_persona_chain()
     website_description_chain = create_website_description_chain()
     website_a11y_report = create_website_a11y_report_chain()
-    paragraph_limit_chain = create_paragraph_limit_chain()
 
     llm_connector = LLMConnectorFactory.create_connector()
     prompt = generate_review_prompt_template()
@@ -43,8 +41,7 @@ def create_review_chain():
             website_description_chain,
             website_a11y_report,
             llm_chain,
-            clean_review_chain,
-            paragraph_limit_chain
+            clean_review_chain
         ],
         input_variables=[
             "website_description",
@@ -52,7 +49,7 @@ def create_review_chain():
             "persona",
             "paragraph_limit"
         ],
-        output_variables=["clean_review_limit"],
+        output_variables=["clean_review"],
         verbose=True
     )
 
