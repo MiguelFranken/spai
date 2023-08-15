@@ -1,18 +1,24 @@
+GET http://accessibility-reporter.local:80/a11y-report?url=http://example.com
+Accept: application/json
+
+###
 GET http://localhost:3000/a11y-report?url=http://example.com
 Content-Type: application/json
 
 ###
 
-GET http://accessibility-reporter.local:80/a11y-report
+GET http://accessibility-reporter.local:80/a11y-report?url=http://example.com
 Content-Type: application/json
 
 ###
-GET http://127.0.0.1:1234/review?url=http://example.com
+GET http://127.0.0.1:1234/review?url=http://denkwerk.com
 Content-Type: application/json
 
 ###
-POST http://review-generator.local:80/review
+
+GET http://review-generator.local/review?url=http://example.com
 Content-Type: application/json
 
-{}
-
+###
+GET http://review-generator.local:80/
+Content-Type: application/json

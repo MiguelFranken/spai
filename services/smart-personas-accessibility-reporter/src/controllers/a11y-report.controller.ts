@@ -12,11 +12,16 @@ function isValidUrl(input: string): boolean {
   }
 }
 
-@Controller('a11y-report')
+@Controller()
 export class A11yReportController {
   constructor(private readonly a11yReportService: A11yReportService) {}
 
   @Get()
+  test() {
+    return "hello world"
+  }
+
+  @Get('a11y-report')
   async getReport(@Query('url') url: string) {
     // Check if url is provided
     if (!url)

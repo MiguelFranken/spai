@@ -24,7 +24,10 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=smart-personas_network"
     networks:
-      - *network_name
+      *network_name :
+        aliases:
+          - review-generator.local
+          - accessibility-reporter.local
 
   docker-static:
     image: nginx:1.23-alpine3.17
@@ -60,9 +63,9 @@ services:
       dockerfile: Dockerfile
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.nestjs-app.rule=Host(`accessibility-reporter.local`)"
-      - "traefik.http.services.smart-personas-review-generator.loadbalancer.server.port=3000"
-      - "traefik.http.routers.nestjs-app.entrypoints=web"
+      - "traefik.http.routers.smart-personas-accessibility-reporter.rule=Host(`accessibility-reporter.local`)"
+      - "traefik.http.services.smart-personas-accessibility-reporter.loadbalancer.server.port=3000"
+      - "traefik.http.routers.smart-personas-accessibility-reporter.entrypoints=web"
       - "traefik.docker.network=smart-personas_network"
     networks:
       - *network_name

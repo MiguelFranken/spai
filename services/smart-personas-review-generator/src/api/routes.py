@@ -1,3 +1,4 @@
+import logging
 from flask import request, jsonify
 from .exceptions import MissingURLParameter, CustomServerError
 from config import PERSONA_NAME, PARAGRAPH_LIMIT, ACCESSIBILITY_REPORTER_API
@@ -5,6 +6,10 @@ from data import report_loader
 from data.personal_info_factory import PersonalInfoFactory
 from review_generator import ReviewGenerator
 import requests
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 
 def init_routes(app):
@@ -37,7 +42,13 @@ def init_routes(app):
             return jsonify({"review": response_text})
 
         except requests.RequestException:
+            logger.exception("Failed to fetch data from the accessibility reporter")
             raise CustomServerError("Failed to fetch data from the accessibility reporter")
 
+        except MissingURLParameter:
+            logger.exception("URL parameter is missing in the request")
+            raise CustomServerError("URL parameter is required.")
+
         except Exception as e:
+            logger.exception("An unexpected error occurred")
             raise CustomServerError(str(e))
