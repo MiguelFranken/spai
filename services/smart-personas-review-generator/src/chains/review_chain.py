@@ -4,7 +4,7 @@ from langchain.chains import SequentialChain, TransformChain
 from chains.persona_chain import create_transform_persona_chain
 from chains.website_a11y_report_chain import create_website_a11y_report_chain
 from chains.website_description_chain import create_website_description_chain
-from components.lm_connector import LLMConnectorFactory
+from components.lm_connector_factory import LLMConnectorFactory
 from templates.review_prompt_template import generate_review_prompt_template
 
 

@@ -1,6 +1,6 @@
 from langchain import LLMChain
 from langchain.chains import SequentialChain, TransformChain
-from components.lm_connector import LLMConnectorFactory
+from components.lm_connector_factory import LLMConnectorFactory
 from templates.website_description_prompt_template import generate_website_description_prompt_template
 from transformers.website_context_transformer import transform_website_context
 
