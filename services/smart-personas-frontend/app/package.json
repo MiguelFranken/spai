@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxi dev",
+    "dev": "nuxi dev -p 1235",
     "start": "nuxi start",
     "coverage": "vitest run --coverage",
     "postinstall": "nuxi prepare",
