@@ -1,0 +1,25 @@
+{
+  "name": "@denkwerk/smart-personas",
+  "version": "1.0.0",
+  "packageManager": "pnpm@8.5.1",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "lint": "pnpm eslint . --fix",
+    "dev": "pnpm --filter @denkwerk/smart-personas-frontend dev",
+    "build": "pnpm --filter @denkwerk/smart-personas-frontend build",
+    "start": "pnpm --filter @denkwerk/smart-personas-frontend start"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "0.38.6",
+    "concurrently": "8.0.1",
+    "eslint": "8.39.0",
+    "typescript": "5.0.4"
+  },
+  "volta": {
+    "node": "18.14.2"
+  }
+}
