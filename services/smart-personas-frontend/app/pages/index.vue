@@ -1,33 +1,21 @@
 <script setup lang="ts">
 const url = ref('');
-const review = ref('');
-const error = ref('');
 
-const fetchReview = async () => {
+const isValidURL = computed(() => {
   try {
-    const response = await fetch(
-      `http://review-generator.local/review?url=${url.value}`,
-    );
-    if (response.ok) {
-      const data = await response.json();
-      console.log("data", data)
-      review.value = data.review;
-      error.value = '';
-    } else {
-      error.value = 'Failed to generate review. Please try again later.';
-      console.error('Failed to generate review. Please try again later.')
-      review.value = '';
-    }
+    // eslint-disable-next-line no-new
+    new URL(url.value)
+    return true
   } catch (e) {
-    error.value = 'An error occurred while fetching the review!';
-    console.error(e)
-    review.value = '';
+    return false
   }
-};
+})
+
+const reviewPage = computed(() => `/review/${encodeURIComponent(url.value)}`)
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+  <div class="pt-32 flex items-center justify-center">
     <div class="p-8 bg-white rounded-lg shadow-md w-96">
       <h1 class="text-2xl font-semibold mb-4 text-blue-500">Accessibility Review</h1>
 
@@ -39,19 +27,16 @@ const fetchReview = async () => {
           class="p-2 border rounded"
         />
 
-        <button
-          @click="fetchReview"
-          class="border-0 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
+        <NuxtLink
+          :to="isValidURL ? reviewPage : undefined"
+          class="border-0 text-center p-2 text-white rounded"
+          :class="{
+            'cursor-pointer bg-blue-500 hover:bg-blue-600': isValidURL,
+            'cursor-not-allowed bg-gray-300': !isValidURL
+          }"
         >
           Generate Review
-        </button>
-
-        <div v-if="review" class="text-green-500">
-          {{ review }}
-        </div>
-        <div v-if="error" class="text-red-500">
-          {{ error }}
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </div>

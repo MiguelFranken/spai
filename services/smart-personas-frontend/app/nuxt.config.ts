@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   css: [
     '~/assets/main.css',
+    '@unocss/reset/tailwind.css',
   ],
   components: {
     dirs: [

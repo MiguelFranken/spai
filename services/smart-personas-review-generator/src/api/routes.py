@@ -18,6 +18,12 @@ BACKOFF_FACTOR = 2
 
 
 def init_routes(app):
+    @app.route('/', methods=['GET'])
+    def testing():
+        time.sleep(2)
+        url = request.args.get('url')
+        return jsonify({"review": "hello world", "url": url})
+
     @app.route('/review', methods=['GET'])
     def generate_review():
         """Generate and return the review based on a given URL."""
