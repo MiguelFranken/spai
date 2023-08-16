@@ -6,8 +6,7 @@ const error = ref('');
 const fetchReview = async () => {
   try {
     const response = await fetch(
-      //`http://review-generator.local/review?url=${url.value}`,
-      `http://localhost:3000/a11y-report?url=http://example.com`,
+      `http://review-generator.local/review?url=${url.value}`,
     );
     if (response.ok) {
       const data = await response.json();
