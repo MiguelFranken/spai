@@ -6,10 +6,18 @@ const { review } = defineProps<Props>()
 
 const paragraphs = computed(() => review.split("\n\n"))
 
-function splitParagraph(paragraph: string): string {
-  const splitNum = 8
+function splitParagraph(paragraph: string): [string, string] {
+  const regex = /([^.?]+[.?])/;  // Match up to the first period or question mark
+  const match = paragraph.match(regex);
 
-  return [paragraph.split(' ').slice(0, splitNum).join(' '), paragraph.split(' ').slice(splitNum).join(' ')];
+  if (match) {
+    const firstSentence = match[1].trim();
+    const rest = paragraph.substring(firstSentence.length).trim();
+    return [firstSentence, rest];
+  } else {
+    // Return the whole paragraph as the first sentence if no punctuation found
+    return [paragraph, ""];
+  }
 }
 
 const splittedParagraphs = computed(() => paragraphs.value.map(splitParagraph))
@@ -17,11 +25,11 @@ const splittedParagraphs = computed(() => paragraphs.value.map(splitParagraph))
 
 <template>
   <div class="py-32">
-    <ul class="flex flex-col gap-16">
-      <li v-for="paragraph in splittedParagraphs">
-        <span class="font-bold text-4xl">{{ paragraph[0] }}</span>
-        <span>{{ paragraph[1] }}</span>
-      </li>
-    </ul>
+    <div class="flex flex-col gap-16">
+      <section v-for="paragraph in splittedParagraphs">
+        <h2 class="font-bold text-4xl">{{ paragraph[0] }}</h2>
+        <p>{{ paragraph[1] }}</p>
+      </section>
+    </div>
   </div>
 </template>

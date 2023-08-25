@@ -5,6 +5,7 @@
     "build": "nuxt build",
     "dev": "nuxi dev -p 1235",
     "start": "nuxi start",
+    "clean": "nuxi clean",
     "coverage": "vitest run --coverage",
     "postinstall": "nuxi prepare",
     "test": "vitest run",
@@ -20,11 +21,15 @@
     "@unocss/preset-icons": "0.55.1",
     "@vue-macros/nuxt": "1.3.8",
     "@vueuse/nuxt": "10.1.2",
+    "msw": "^1.2.4",
     "nuxt": "3.5.0",
     "pinia": "2.1.3",
     "vitest": "0.31.1"
   },
   "dependencies": {
     "@unocss/reset": "0.55.1"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

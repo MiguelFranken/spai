@@ -17,7 +17,7 @@ const reviewPage = computed(() => `/review/${encodeURIComponent(url.value)}`)
 <template>
   <div class="pt-32 flex items-center justify-center">
     <div class="p-8 bg-white rounded-lg shadow-md w-96">
-      <h1 class="text-2xl font-semibold mb-4 text-blue-500">Accessibility Review</h1>
+      <h1 class="text-2xl font-semibold mb-4 text-blue-500">Accessibility Reviews</h1>
 
       <div class="flex flex-col space-y-4">
         <input
