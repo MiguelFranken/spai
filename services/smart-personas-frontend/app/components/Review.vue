@@ -26,7 +26,7 @@ const splittedParagraphs = computed(() => paragraphs.value.map(splitParagraph))
 <template>
   <div class="py-32">
     <div class="flex flex-col gap-16">
-      <section v-for="paragraph in splittedParagraphs">
+      <section v-for="paragraph in splittedParagraphs" class="space-y-2">
         <h2 class="font-bold text-4xl">{{ paragraph[0] }}</h2>
         <p>{{ paragraph[1] }}</p>
       </section>
