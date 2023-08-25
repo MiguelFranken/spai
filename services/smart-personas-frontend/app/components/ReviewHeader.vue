@@ -1,6 +1,15 @@
 <template>
-  <div class="w-full py-12 bg-yellow-400 color-white">
-    <LayoutContainer>
+  <div
+    class="relative w-full py-12 color-white overflow-hidden"
+    
+  >
+    <div class="absolute inset-0 overflow-hidden">
+      <div
+        class="w-full h-128 container-background bg-cover bg-center blur-lg !bg-fixed"
+      />
+    </div>
+    
+    <LayoutContainer class="relative">
       <div class="flex justify-between">
         <!-- Persona -->
         <div class="flex gap-8 items-center">
@@ -47,3 +56,12 @@
     </LayoutContainer>
   </div>
 </template>
+
+<script setup lang="ts">
+</script>
+
+<style scoped>
+.container-background {
+  background: linear-gradient(to right bottom, rgba(71, 253, 220, 0.77), rgba(11, 105, 245, 0.49)), url('/_nuxt/assets/grandma.png');
+}
+</style>
