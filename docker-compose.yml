@@ -69,3 +69,17 @@ services:
       - "traefik.docker.network=smart-personas_network"
     networks:
       - *network_name
+
+  smart-personas-frontend:
+    image: smart-personas-frontend
+    build:
+      context: ./services/smart-personas-frontend
+      dockerfile: Dockerfile
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.smart-personas-frontend.rule=Host(`a11y-ai.local`)"
+      - "traefik.http.routers.smart-personas-frontend.entrypoints=web"
+      - "traefik.http.services.smart-personas-frontend.loadbalancer.server.port=3000"
+      - "traefik.docker.network=smart-personas_network"
+    networks:
+      - *network_name
