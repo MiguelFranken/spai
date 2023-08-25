@@ -9,10 +9,9 @@ export default defineConfig({
       scale: 1.2,
     }),
     presetWebFonts({
+      provider: 'google',
       fonts: {
-        sans: 'DM Sans',
-        serif: 'DM Serif Display',
-        mono: 'DM Mono',
+        pacifico: 'Pacifico',
       },
     })
   ],

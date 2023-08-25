@@ -23,8 +23,8 @@
             </div>
           </div>
           
-          <div class="space-y-4">
-            <div class="text-4xl font-bold">Claudia</div>
+          <div class="space-y-2">
+            <div class="text-4xl font-pacifico">Claudia</div>
             <ul class="list-disc list-inside">
               <li>Grandmother with macular degeneration</li>
               <li>Uses a screen magnifier and changes colors for contrast</li>
