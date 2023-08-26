@@ -9,33 +9,37 @@ definePageMeta({
       // eslint-disable-next-line no-new
       new URL((Array.isArray(route) ? route[0] : route).params.url)
       return true
-    } catch (e) {
+    }
+    catch (e) {
       return false
     }
-  }
+  },
 })
 
+interface ReviewResponse {
+  review: string
+}
 
-const {pending, data, error} = useFetch(
+const { pending, data, error } = useFetch<ReviewResponse>(
   `http://review-generator.smart-personas.local/review?url=${encodeURIComponent(url)}`,
-  //`http://review-generator.local/?url=${encodeURIComponent(url)}`,
+  // `http://review-generator.local/?url=${encodeURIComponent(url)}`,
   {
     lazy: true,
-  }
+  },
 )
 </script>
 
 <template>
   <div>
-    <div v-if="pending" class="h-screen flex items-center justify-center">
-      <div class="flex flex-col items-center gap-4">
-        <LoadingSpinner/>
+    <div v-if="pending" class="flex items-center justify-center">
+      <div class="flex flex-col items-center gap-4 pt-8">
+        <LoadingSpinner />
         <div>Loading Accessibility Review</div>
       </div>
     </div>
     <div v-else-if="error">
-      ERROR: {{error}}
+      ERROR: {{ error }}
     </div>
-    <Review class="pt-16" v-else :review="data.review" />
+    <Review v-else-if="data" class="pt-16" :review="data.review" />
   </div>
 </template>
