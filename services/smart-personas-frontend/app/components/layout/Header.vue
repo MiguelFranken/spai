@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div>
     <LayoutContainer class="flex py-8">
@@ -11,12 +14,12 @@
       >
         A11y-AI
       </NuxtLink>
-      
-      <div class="pl-4 max-w-68">an Accessibility Experiment to inspire a more inclusive Web for all</div>
+
+      <div class="pl-4 max-w-68">
+        an Accessibility Experiment to inspire a more inclusive Web for all
+      </div>
     </LayoutContainer>
-    
+
     <ReviewHeader />
   </div>
 </template>
-<script setup lang="ts">
-</script>
