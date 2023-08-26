@@ -41,27 +41,8 @@ import backgroundImagePath from '~/assets/grandma.png'
           </div>
 
           <div class="flex gap-8 items-center">
-            <div>
-              <img
-                class="h-24 w-24 rounded-full"
-                :src="backgroundImagePath"
-                alt=""
-              >
-              <div class="text-center">
-                John
-              </div>
-            </div>
-
-            <div>
-              <img
-                class="h-24 w-24 rounded-full"
-                :src="backgroundImagePath"
-                alt=""
-              >
-              <div class="text-center">
-                John
-              </div>
-            </div>
+            <Avatar :src="backgroundImagePath" name="Claudia" />
+            <Avatar :src="backgroundImagePath" name="Claudia" />
           </div>
         </div>
       </LayoutContainer>
