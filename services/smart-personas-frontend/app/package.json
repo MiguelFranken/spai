@@ -3,10 +3,10 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxi dev -p 1235",
-    "dev:mock": "NUXT_SHOULD_MOCK_REVIEW_GENERATOR_API=true nuxi dev -p 1235",
-    "start": "nuxi start",
-    "clean": "nuxi clean",
+    "dev": "nuxi dev --port 1235",
+    "dev:mock": "NUXT_SHOULD_MOCK_REVIEW_GENERATOR_API=true nuxi dev --port 1235",
+    "preview": "nuxi preview",
+    "clean": "nuxi cleanup",
     "coverage": "vitest run --coverage",
     "postinstall": "nuxi prepare",
     "test": "vitest run",
@@ -14,24 +14,21 @@
     "ci:smoke": "pnpm dlx concurrently -k -s first -n \"NUXT,TEST\" -c \"magenta,blue\" \"pnpm dev\" \"pnpm dlx wait-on tcp:3000 && pnpm echo \"pass\" \""
   },
   "devDependencies": {
-    "@iconify-json/tabler": "1.1.87",
-    "@nuxt/devtools": "0.5.0",
-    "@nuxt/test-utils-edge": "3.3.3-28007403.1fd491f1",
-    "@pinia/nuxt": "0.4.11",
-    "@unocss/nuxt": "0.51.13",
-    "@unocss/preset-icons": "0.55.1",
-    "@unocss/preset-web-fonts": "0.55.3",
-    "@vue-macros/nuxt": "1.3.8",
-    "@vueuse/nuxt": "10.1.2",
-    "msw": "^1.2.4",
-    "nuxt": "3.5.0",
-    "pinia": "2.1.3",
-    "vitest": "0.31.1"
+    "@iconify-json/tabler": "1.1.89",
+    "@nuxt/devtools": "0.8.0",
+    "@pinia/nuxt": "^0.4.11",
+    "@unocss/nuxt": "^0.55.3",
+    "@unocss/preset-icons": "^0.55.3",
+    "@unocss/preset-web-fonts": "^0.55.3",
+    "@vue-macros/nuxt": "^1.7.11",
+    "@vueuse/nuxt": "^10.4.0",
+    "happy-dom": "10.11.0",
+    "nuxt": "3.7.0",
+    "nuxt-vitest": "0.10.2",
+    "pinia": "^2.1.6",
+    "vitest": "^0.33.0"
   },
   "dependencies": {
-    "@unocss/reset": "0.55.1"
-  },
-  "msw": {
-    "workerDirectory": "public"
+    "@unocss/reset": "^0.55.3"
   }
 }

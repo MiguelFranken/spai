@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@vueuse/nuxt',
     '@vue-macros/nuxt',
+    'nuxt-vitest',
   ],
   routeRules: {
     '/**': {
@@ -41,7 +42,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      mockEnabled: process.env.NUXT_SHOULD_MOCK_REVIEW_GENERATOR_API || false,
+      mockEnabled: !!process.env.NUXT_SHOULD_MOCK_REVIEW_GENERATOR_API || false,
     },
   },
 })
