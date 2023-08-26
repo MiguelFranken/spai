@@ -1,18 +1,16 @@
-import { rest, setupWorker } from 'msw'
-
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook('app:beforeMount', async () => {
     const config = useRuntimeConfig()
     const isMockEnabled = config.public.mockEnabled
 
     if (isMockEnabled && process.client) {
+      const baseUrl = 'http://review-generator.smart-personas.local'
+
       async function startWorker() {
-        const baseUrl = 'http://review-generator.local'
+        const msw = await import('msw')
 
         const handlers = [
-
-          // ?url=${encodeURIComponent(url)}
-          rest.get('http://review-generator.smart-personas.local/review', (req, res, ctx) => {
+          msw.rest.get(`${baseUrl}/review`, (req, res, ctx) => {
             const review = 'Oh, Musikhaus Thomann, where do I begin? First, hats off for being Europe’s largest music house. Truly, I had high hopes as I embarked on this digital exploration. My journey began long before my vision decided to play peekaboo, and music has been a beloved part of that. Who doesn\'t love the soothing notes of a piano or the hum of a guitar? I dreamt of treating my niece to a new violin, perhaps serenading my next family gathering.\n'
               + '\n'
               + 'However, diving into your site felt like trying to navigate one of those newfangled, overly-complicated sheet music pieces. Take, for instance, the unexpected roles you’ve assigned to elements. Imagine handing me a tambourine when I asked for a trumpet. That\'s how it felt. And those unlabeled buttons? It’s like trying to play a tune without knowing the notes. Ah, and the color contrast – or should I say, the lack thereof? It was akin to attempting to read lyrics written in invisible ink. I often share with my clients the importance of clarity, especially in the challenges they face. Your website felt like a mystery novel where all the critical pages were torn out.\n'
@@ -26,10 +24,10 @@ export default defineNuxtPlugin((nuxtApp) => {
           }),
         ]
 
-        const worker = setupWorker(...handlers)
+        const worker = msw.setupWorker(...handlers)
         await worker.start({
           onUnhandledRequest: ({ url }, print) => {
-            if (url.pathname.startsWith('http://review-generator.local'))
+            if (url.pathname.startsWith(baseUrl))
               print.warning()
           },
         })
