@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-100">
     <div class="mx-auto max-w-[900px]">
-      <slot />  
+      <slot />
     </div>
   </div>
 </template>
