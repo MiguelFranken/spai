@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import backgroundImagePath from '~/assets/grandma.png'
+
+const reviewURL = useReviewURL()
+const isLoadingReview = useIsLoadingReview()
 </script>
 
 <template>
@@ -48,10 +51,28 @@ import backgroundImagePath from '~/assets/grandma.png'
       </LayoutContainer>
     </div>
 
-    <div class="relative bg-black/10 h-12">
-      <LayoutContainer class="h-full flex items-center">
-        Reviewing website: https://thomann.de/
-      </LayoutContainer>
+    <div
+      class="relative h-12 bg-black/10"
+      :class="{
+        'before:(absolute inset-0 animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-black/10 to-transparent content-[\'\'])': isLoadingReview,
+      }"
+    >
+      <ClientOnly>
+        <LayoutContainer class="h-full flex items-center">
+          Reviewing website: {{ reviewURL }}
+        </LayoutContainer>
+      </ClientOnly>
     </div>
   </div>
 </template>
+
+<style>
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+</style>

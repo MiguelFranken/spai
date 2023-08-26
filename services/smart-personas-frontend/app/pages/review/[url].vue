@@ -2,6 +2,12 @@
 const route = useRoute()
 const url = (Array.isArray(route) ? route[0] : route).params.url
 
+const reviewURL = useReviewURL()
+reviewURL.value = url
+
+const isLoadingReview = useIsLoadingReview()
+isLoadingReview.value = true
+
 definePageMeta({
   layout: 'content',
   validate: async (route) => {
@@ -28,6 +34,8 @@ const { pending, data, error } = useFetch<ReviewResponse>(
     lazy: true,
   },
 )
+
+watch(pending, () => isLoadingReview.value = false)
 </script>
 
 <template>
