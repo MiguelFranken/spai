@@ -23,6 +23,7 @@
     "@vue-macros/nuxt": "^1.7.11",
     "@vueuse/nuxt": "^10.4.0",
     "happy-dom": "10.11.0",
+    "msw": "0.0.0-fetch.rc-17",
     "nuxt": "3.7.0",
     "nuxt-vitest": "0.10.2",
     "pinia": "^2.1.6",
@@ -30,5 +31,8 @@
   },
   "dependencies": {
     "@unocss/reset": "^0.55.3"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
