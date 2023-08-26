@@ -1,9 +1,6 @@
 <template>
   <div class="min-h-screen">
     <LayoutHeader />
-
-    <LayoutContainer>
-      <slot />
-    </LayoutContainer>
+    <slot />
   </div>
 </template>

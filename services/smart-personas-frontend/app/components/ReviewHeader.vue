@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import backgroundImagePath from '~/assets/grandma.png'
 
-const reviewURL = useReviewURL()
-const isLoadingReview = useIsLoadingReview()
+defineProps<{
+  name: string
+  url: string
+  isLoading: boolean
+}>()
 </script>
 
 <template>
@@ -33,7 +36,7 @@ const isLoadingReview = useIsLoadingReview()
 
             <div class="space-y-2">
               <div class="text-4xl font-pacifico">
-                Claudia
+                {{ name }}
               </div>
               <ul class="list-disc list-inside">
                 <li>Grandmother with macular degeneration</li>
@@ -52,27 +55,16 @@ const isLoadingReview = useIsLoadingReview()
     </div>
 
     <div
-      class="relative h-12 bg-black/10"
+      class="relative h-12 bg-black/10 test"
       :class="{
-        'before:(absolute inset-0 animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-black/10 to-transparent content-[\'\'])': isLoadingReview,
+        'before:(absolute inset-0 animate-shimmer animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-black/10 to-transparent content-empty)': isLoading,
       }"
     >
-      <ClientOnly>
-        <LayoutContainer class="h-full flex items-center">
-          Reviewing website: {{ reviewURL }}
-        </LayoutContainer>
-      </ClientOnly>
+      <LayoutContainer class="h-full flex items-center">
+        <ClientOnly>
+          Reviewing Website: {{ url }}
+        </ClientOnly>
+      </LayoutContainer>
     </div>
   </div>
 </template>
-
-<style>
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-</style>

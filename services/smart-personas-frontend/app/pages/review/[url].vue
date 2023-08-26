@@ -2,12 +2,6 @@
 const route = useRoute()
 const url = (Array.isArray(route) ? route[0] : route).params.url
 
-const reviewURL = useReviewURL()
-reviewURL.value = url
-
-const isLoadingReview = useIsLoadingReview()
-isLoadingReview.value = true
-
 definePageMeta({
   layout: 'content',
   validate: async (route) => {
@@ -34,21 +28,27 @@ const { pending, data, error } = useFetch<ReviewResponse>(
     lazy: true,
   },
 )
-
-watch(pending, () => isLoadingReview.value = false)
 </script>
 
 <template>
   <div>
-    <div v-if="pending" class="flex items-center justify-center">
-      <div class="flex flex-col items-center gap-4 pt-8">
-        <LoadingSpinner />
-        <div>Loading Accessibility Review</div>
+    <ReviewHeader
+      name="Claudia"
+      :is-loading="pending"
+      :url="url"
+    />
+
+    <LayoutContainer>
+      <div v-if="pending" class="flex items-center justify-center">
+        <div class="flex flex-col items-center gap-4 pt-8">
+          <LoadingSpinner />
+          <div>Loading Accessibility Review</div>
+        </div>
       </div>
-    </div>
-    <div v-else-if="error">
-      ERROR: {{ error }}
-    </div>
-    <Review v-else-if="data" class="pt-16" :review="data.review" />
+      <div v-else-if="error">
+        ERROR: {{ error }}
+      </div>
+      <ReviewBody v-else-if="data" class="pt-16" :review="data.review" />
+    </LayoutContainer>
   </div>
 </template>
