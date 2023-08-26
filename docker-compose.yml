@@ -26,8 +26,9 @@ services:
     networks:
       *network_name :
         aliases:
-          - review-generator.local
-          - accessibility-reporter.local
+          - review-generator.smart-personas.local
+          - accessibility-reporter.smart-personas.local
+          - a11y-ai.smart-personas.local
 
   docker-static:
     image: nginx:1.23-alpine3.17
@@ -49,7 +50,7 @@ services:
       dockerfile: Dockerfile
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.smart-personas-review-generator.rule=Host(`review-generator.local`)"
+      - "traefik.http.routers.smart-personas-review-generator.rule=Host(`review-generator.smart-personas.local`)"
       - "traefik.http.routers.smart-personas-review-generator.entrypoints=web"
       - "traefik.http.services.smart-personas-review-generator.loadbalancer.server.port=1234"
       - "traefik.docker.network=smart-personas_network"
@@ -63,7 +64,7 @@ services:
       dockerfile: Dockerfile
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.smart-personas-accessibility-reporter.rule=Host(`accessibility-reporter.local`)"
+      - "traefik.http.routers.smart-personas-accessibility-reporter.rule=Host(`accessibility-reporter.smart-personas.local`)"
       - "traefik.http.services.smart-personas-accessibility-reporter.loadbalancer.server.port=3000"
       - "traefik.http.routers.smart-personas-accessibility-reporter.entrypoints=web"
       - "traefik.docker.network=smart-personas_network"
@@ -77,7 +78,7 @@ services:
       dockerfile: Dockerfile
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.smart-personas-frontend.rule=Host(`a11y-ai.local`)"
+      - "traefik.http.routers.smart-personas-frontend.rule=Host(`a11y-ai.smart-personas.local`)"
       - "traefik.http.routers.smart-personas-frontend.entrypoints=web"
       - "traefik.http.services.smart-personas-frontend.loadbalancer.server.port=3000"
       - "traefik.docker.network=smart-personas_network"

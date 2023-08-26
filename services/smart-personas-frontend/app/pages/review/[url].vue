@@ -17,7 +17,7 @@ definePageMeta({
 
 
 const {pending, data, error} = useFetch(
-  `http://review-generator.local/review?url=${encodeURIComponent(url)}`,
+  `http://review-generator.smart-personas.local/review?url=${encodeURIComponent(url)}`,
   //`http://review-generator.local/?url=${encodeURIComponent(url)}`,
   {
     lazy: true,
