@@ -4,19 +4,20 @@ interface Props {
 }
 const { review } = defineProps<Props>()
 
-const paragraphs = computed(() => review.split("\n\n"))
+const paragraphs = computed(() => review.split('\n\n'))
 
 function splitParagraph(paragraph: string): [string, string] {
-  const regex = /([^.?]+[.?])/;  // Match up to the first period or question mark
-  const match = paragraph.match(regex);
+  const regex = /([^.?]+[.?])/ // Match up to the first period or question mark
+  const match = paragraph.match(regex)
 
   if (match) {
-    const firstSentence = match[1].trim();
-    const rest = paragraph.substring(firstSentence.length).trim();
-    return [firstSentence, rest];
-  } else {
+    const firstSentence = match[1].trim()
+    const rest = paragraph.substring(firstSentence.length).trim()
+    return [firstSentence, rest]
+  }
+  else {
     // Return the whole paragraph as the first sentence if no punctuation found
-    return [paragraph, ""];
+    return [paragraph, '']
   }
 }
 
@@ -27,11 +28,15 @@ const splittedParagraphs = computed(() => paragraphs.value.map(splitParagraph))
   <div class="py-32">
     <div class="flex flex-col gap-16">
       <section v-for="paragraph in splittedParagraphs" class="space-y-2">
-        <h2 class="text-3xl font-pacifico leading-snug">{{ paragraph[0] }}</h2>
+        <h2 class="text-3xl font-pacifico leading-snug">
+          {{ paragraph[0] }}
+        </h2>
         <p>{{ paragraph[1] }}</p>
       </section>
-      
-      <div class="text-3xl font-pacifico">Yours, Claudia</div>
+
+      <div class="text-3xl font-pacifico">
+        Yours, Claudia
+      </div>
     </div>
   </div>
 </template>
