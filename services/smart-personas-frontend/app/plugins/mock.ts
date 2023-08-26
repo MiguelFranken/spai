@@ -2,7 +2,10 @@ import { rest, setupWorker } from 'msw'
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.hook('app:beforeMount', async () => {
-    if (process.client) {
+    const config = useRuntimeConfig()
+    const isMockEnabled = config.public.mockEnabled
+
+    if (isMockEnabled && process.client) {
       async function startWorker() {
         const baseUrl = 'http://review-generator.local'
 

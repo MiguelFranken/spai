@@ -4,6 +4,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxi dev -p 1235",
+    "dev:mock": "NUXT_SHOULD_MOCK_REVIEW_GENERATOR_API=true nuxi dev -p 1235",
     "start": "nuxi start",
     "clean": "nuxi clean",
     "coverage": "vitest run --coverage",

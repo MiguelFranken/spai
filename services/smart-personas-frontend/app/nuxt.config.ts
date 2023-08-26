@@ -39,4 +39,9 @@ export default defineNuxtConfig({
       preserveSymlinks: true,
     },
   },
+  runtimeConfig: {
+    public: {
+      mockEnabled: process.env.NUXT_SHOULD_MOCK_REVIEW_GENERATOR_API || false,
+    },
+  },
 })
