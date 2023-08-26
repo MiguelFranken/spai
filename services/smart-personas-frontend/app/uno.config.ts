@@ -1,5 +1,5 @@
 // uno.config.ts
-import { defineConfig, presetAttributify, presetUno, presetIcons, presetWebFonts } from 'unocss'
+import { defineConfig, presetAttributify, presetIcons, presetUno, presetWebFonts } from 'unocss'
 
 export default defineConfig({
   presets: [
@@ -13,6 +13,6 @@ export default defineConfig({
       fonts: {
         pacifico: 'Pacifico',
       },
-    })
+    }),
   ],
 })
