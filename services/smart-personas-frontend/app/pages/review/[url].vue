@@ -21,8 +21,7 @@ interface ReviewResponse {
 }
 
 const { pending, data, error } = useFetch<ReviewResponse>(
-  `http://review-generator.smart-personas.local/review?url=${encodeURIComponent(url)}`,
-  // `http://review-generator.local/?url=${encodeURIComponent(url)}`,
+  `${useRuntimeConfig().public.reviewGeneratorUrl}/review?url=${encodeURIComponent(url)}`,
   {
     server: false,
     lazy: true,

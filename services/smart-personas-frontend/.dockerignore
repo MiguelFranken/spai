@@ -6,3 +6,4 @@ node_modules
 .gitignore
 *.md
 dist
+.env

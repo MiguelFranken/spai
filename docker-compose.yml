@@ -78,6 +78,8 @@ services:
     build:
       context: ./services/smart-personas-frontend
       dockerfile: Dockerfile
+    env_file:
+      - ./services/smart-personas-frontend/.env
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.smart-personas-frontend.rule=Host(`a11y-ai.smart-personas.local`)"

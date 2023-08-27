@@ -43,6 +43,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       mockEnabled: !!process.env.NUXT_SHOULD_MOCK_REVIEW_GENERATOR_API || false,
+      reviewGeneratorUrl: 'http://review-generator.smart-personas.local',
     },
   },
 })
