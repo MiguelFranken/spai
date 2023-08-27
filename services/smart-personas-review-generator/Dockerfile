@@ -17,5 +17,7 @@ RUN pip install --upgrade pip &&\
 
 COPY src/ /app/
 COPY .env /app/
+COPY entrypoint.sh /app/
 
-CMD ["python", "./main.py"]
+CMD ["./entrypoint.sh"]
+

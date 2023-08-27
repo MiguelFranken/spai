@@ -1,4 +1,4 @@
-FROM node:18 AS build
+FROM node:18-alpine AS build
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN pnpm install --no-frozen-lockfile
 RUN pnpm --filter @denkwerk/smart-personas-frontend build 
 
 
-FROM node:18
+FROM node:18-alpine
 
 # Set working directory
 WORKDIR /app

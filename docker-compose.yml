@@ -52,7 +52,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.smart-personas-review-generator.rule=Host(`review-generator.smart-personas.local`)"
       - "traefik.http.routers.smart-personas-review-generator.entrypoints=web"
-      - "traefik.http.services.smart-personas-review-generator.loadbalancer.server.port=1234"
+      - "traefik.http.services.smart-personas-review-generator.loadbalancer.server.port=10000"
       - "traefik.docker.network=smart-personas_network"
     networks:
       - *network_name
