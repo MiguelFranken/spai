@@ -48,6 +48,8 @@ services:
     build:
       context: ./services/smart-personas-review-generator
       dockerfile: Dockerfile
+    env_file:
+      - ./services/smart-personas-review-generator/.env
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.smart-personas-review-generator.rule=Host(`review-generator.smart-personas.local`)"

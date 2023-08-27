@@ -16,7 +16,6 @@ RUN pip install --upgrade pip &&\
     pip install -r requirements.txt
 
 COPY src/ /app/
-COPY .env /app/
 COPY entrypoint.sh /app/
 
 CMD ["./entrypoint.sh"]
