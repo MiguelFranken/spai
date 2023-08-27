@@ -9,11 +9,14 @@ SERVICES=("smart-personas-review-generator" "smart-personas-frontend" "smart-per
 # Login to Docker Hub
 docker login
 
+# Enable Docker BuildKit
+export DOCKER_BUILDKIT=1
+
 # Iterate over each service name
 for SERVICE in "${SERVICES[@]}"; do
-    # Tag the Docker image
-    docker tag $SERVICE $DOCKER_USERNAME/$SERVICE:latest
-    
+    # Build the Docker image with BuildKit and specific platform
+    docker build --platform=linux/amd64 -t $DOCKER_USERNAME/$SERVICE:latest ./services/$SERVICE
+
     # Push the Docker image to Docker Hub
     docker push $DOCKER_USERNAME/$SERVICE:latest
 done
