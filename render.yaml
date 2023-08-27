@@ -1,0 +1,7 @@
+services:
+  # A Docker web service
+  - type: web
+    name: frontend
+    runtime: docker
+    image:
+      url: docker.io/miguelfranken96/smart-personas-frontend
