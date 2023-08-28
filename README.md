@@ -18,7 +18,7 @@ This repository contains the Docker configuration for deploying the Smart-Person
 
 1. **Clone the Repository**:
     ```bash
-    git clone [your-repository-url] && cd docker
+    git clone git@gitlab.dev.dwinternal.com:denkwerk/ki/spai.git && cd docker
     ```
 
 2. **Build the Microservices**:
@@ -42,14 +42,28 @@ This repository contains the Docker configuration for deploying the Smart-Person
 
 ## Testing
 
-Once everything is up and running, you can test the `smart-personas-review-generator` service by accessing:
+Once everything is up and running, you can test the application via the `smart-personas-frontend` service by
+browsing to the following website in your browser:
 ```
-http://review-generator.local
+http://a11y-ai.smart-personas.local
 ```
 
 ## Viewing Logs
 
-To view logs for a specific service, navigate to its directory under `/projects` and use the Makefile provided:
+To view logs for all service, use the Makefile in the root directory:
 ```bash
 make logs
+```
+
+To view logs for a specific service, use one of these commands:
+```bash
+make logs-review-generator
+```
+
+```bash
+make logs-accessibility-reporter
+```
+
+```bash
+make logs-frontend
 ```
