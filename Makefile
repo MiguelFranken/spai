@@ -19,3 +19,11 @@ logs:
 logs-review-generator:
 	@echo "Fetching logs for review generator service..."
 	@docker compose logs --tail 300 -f smart-personas-review-generator
+
+logs-frontend:
+	@echo "Fetching logs for frontend service..."
+	@docker compose logs --tail 300 -f smart-personas-frontend
+
+logs-accessibility-reporter:
+	@echo "Fetching logs for accessibility reporter service..."
+	@docker compose logs --tail 300 -f smart-personas-accessibility-reporter
