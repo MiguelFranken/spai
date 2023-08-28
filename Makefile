@@ -14,7 +14,7 @@ run: # Start the docker containers defined in docker-compose.yml
 	@echo "Starting all services with Docker Compose..."
 	@docker-compose up -d
 
-stop:
+stop: # Stops containers and removes containers, networks, volumes, and images created by make run.
 	@echo "Stopping all services..."
 	@docker-compose down
 
