@@ -14,7 +14,7 @@ defineProps<{
   >
     <div class="absolute inset-0 overflow-hidden">
       <div
-        class="w-full h-128 bg-cover bg-center blur-lg !bg-fixed"
+        class="w-full h-128 !bg-cover !bg-center blur-lg !bg-fixed"
         :style="{ background: `linear-gradient(to right bottom, rgba(71, 253, 220, 0.77), rgba(11, 105, 245, 0.49)), url(${backgroundImagePath})` }"
       />
     </div>
