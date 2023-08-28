@@ -6,4 +6,7 @@ node_modules
 .gitignore
 *.md
 dist
-.env
+.env*
+.editorconfig
+README.md
+*.iml
