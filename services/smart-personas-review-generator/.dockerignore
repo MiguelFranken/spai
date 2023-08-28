@@ -1,6 +1,5 @@
 venv
 tests
-experiments
 reports
 .editorconfig
 .env*
