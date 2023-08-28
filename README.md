@@ -1,5 +1,8 @@
 # Smart Personas AI
 
+## Live
+Visit https://smart-personas-frontend.onrender.com/
+
 ## Overview
 This repository contains the Docker configuration for deploying the Smart-Personas microservices. Traefik is used as a reverse proxy to route traffic to appropriate services. Each microservice has its own Docker container for modularity and scalability.
 
@@ -13,6 +16,10 @@ This repository contains the Docker configuration for deploying the Smart-Person
 
 - Docker and Docker Compose installed
 - Gasmask (for managing local domain routing)
+
+### Deployment Prerequisites
+- Secrets stored in `secrets.env` (this file is not committed due to security reasons). Use `secrets.env.example` as a template to create your own.
+
 
 ## Setting Up
 
@@ -66,4 +73,10 @@ make logs-accessibility-reporter
 
 ```bash
 make logs-frontend
+```
+
+## Build & Deploy Microservices via Render.com
+First, make sure you have the `secrets.env` file set up in the root directory. Then, trigger the deployment by executing the `deploy.sh` script:
+```bash
+./deploy.sh
 ```
